@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+
+<html lang="en-US" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+	<meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(e){this.triggerEvents=e,this.eventOptions={passive:!0},this.userEventListener=this.triggerListener.bind(this),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventListener,e.eventOptions)))}_removeUserInteractionListener(e){this.triggerEvents.forEach((t=>window.removeEventListener(t,e.userEventListener,e.eventOptions)))}triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}async _loadEverythingNow(){this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async),await this._triggerDOMContentLoaded(),await this._triggerWindowLoad(),window.dispatchEvent(new Event("rocket-allScriptsLoaded"))}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._requestAnimFrame(),new Promise((t=>{const n=document.createElement("script");let r;[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type",r=e.nodeValue),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t()),e.parentNode.replaceChild(n,e)}))}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){var e=document.createDocumentFragment();[...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async].forEach((t=>{const n=t.getAttribute("src");if(n){const t=document.createElement("link");t.href=n,t.rel="preload",t.as="script",e.appendChild(t)}})),document.head.appendChild(e)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(r){e["rocket"+t]=n=r}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._requestAnimFrame(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._requestAnimFrame(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._requestAnimFrame(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._requestAnimFrame(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._requestAnimFrame(),window.dispatchEvent(new Event("rocket-load")),await this._requestAnimFrame(),window.rocketonload&&window.rocketonload(),await this._requestAnimFrame(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),window.dispatchEvent(new Event("rocket-pageshow")),await this._requestAnimFrame(),window.rocketonpageshow&&window.rocketonpageshow()}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,r=document.createRange(),i=n.parentElement;let o=e.get(n);void 0===o&&(o=n.nextSibling,e.set(n,o));const a=document.createDocumentFragment();r.setStart(a,0),a.appendChild(r.createContextualFragment(t)),i.insertBefore(a,o)}}async _requestAnimFrame(){return new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts(["keydown","mousemove","touchmove","touchstart","touchend","wheel"]);e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();</script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+	<title>Masum Mridha &#8211; A Profetional Web Developer</title>
+	<link rel="stylesheet" href="custom.css">
+	<link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Source%20Sans%20Pro%3A200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C600%2C600italic%2C700%2C700italic%2C900%2C900italic%7CArvo%3A400%2C400italic%2C700%2C700italic%7CMontserrat%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;subset=cyrillic%2Ccyrillic-ext%2Cgreek%2Cgreek-ext%2Clatin%2Clatin-ext%2Cvietnamese&amp;display=swap" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source%20Sans%20Pro%3A200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C600%2C600italic%2C700%2C700italic%2C900%2C900italic%7CArvo%3A400%2C400italic%2C700%2C700italic%7CMontserrat%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;subset=cyrillic%2Ccyrillic-ext%2Cgreek%2Cgreek-ext%2Clatin%2Clatin-ext%2Cvietnamese&amp;display=swap" media="print" onload="this.media='all'" />
+	<noscript>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source%20Sans%20Pro%3A200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C600%2C600italic%2C700%2C700italic%2C900%2C900italic%7CArvo%3A400%2C400italic%2C700%2C700italic%7CMontserrat%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;subset=cyrillic%2Ccyrillic-ext%2Cgreek%2Cgreek-ext%2Clatin%2Clatin-ext%2Cvietnamese&amp;display=swap" />
+	</noscript>
+	<meta name='robots' content='max-image-preview:large' />
+	<link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
+	<link href='https://fonts.gstatic.com/' crossorigin rel='preconnect' />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel='stylesheet' id='thegem-preloader-css'  href='wp-content/themes/thegem/css/thegem-preloaderf658.css?ver=5.8.1' type='text/css' media='all' />
+	<style id='thegem-preloader-inline-css' type='text/css'>
+
+		body:not(.compose-mode) .gem-icon-style-gradient span,
+		body:not(.compose-mode) .gem-icon .gem-icon-half-1,
+		body:not(.compose-mode) .gem-icon .gem-icon-half-2 {
+			opacity: 0 !important;
+			}
+	</style>
+	<link rel='stylesheet' id='thegem-reset-css'  href='wp-content/themes/thegem/css/thegem-resetf658.css?ver=5.8.1' type='text/css' media='all' />
+	<link rel='stylesheet' id='thegem-grid-css'  href='wp-content/themes/thegem/css/thegem-gridf658.css?ver=5.8.1' type='text/css' media='all' />
+	<link rel='stylesheet' id='thegem-style-css'  href='wp-content/themes/thegem/stylef658.css?ver=5.8.1' type='text/css' media='all' />
+	<link rel='stylesheet' id='thegem-header-css'  href='wp-content/themes/thegem/css/thegem-headerf658.css?ver=5.8.1' type='text/css' media='all' />
+	<link rel='stylesheet' id='thegem-widgets-css'  href='wp-content/themes/thegem/css/thegem-widgetsf658.css?ver=5.8.1' type='text/css' media='all' />
+	<link rel='stylesheet' id='thegem-new-css-css'  href='wp-content/themes/thegem/css/thegem-new-cssf658.css?ver=5.8.1' type='text/css' media='all' />
+	<link rel='stylesheet' id='perevazka-css-css-css'  href='wp-content/themes/thegem/css/thegem-perevazka-cssf658.css?ver=5.8.1' type='text/css' media='all' />
+
+	<link rel='stylesheet' id='thegem-custom-css'  href='wp-content/themes/thegem/css/custom-X2TlvxTzf658.css?ver=5.8.1' type='text/css' media='all' />
+	<style id='thegem-custom-inline-css' type='text/css'>
+	.vc_custom_1600116836879{margin-bottom: 0px !important;background-color: #1e1f28 !important;}.vc_custom_1599767842188{margin-bottom: 0px !important;padding-right: 42px !important;}.vc_custom_1599762968088{margin-bottom: 0px !important;padding-top: 55px !important;padding-left: 35px !important;}.vc_custom_1600193851780{padding-left: 50px !important;}
+	body .page-title-block .breadcrumbs-container{	text-align: center;}.page-breadcrumbs ul li a,.page-breadcrumbs ul li:not(:last-child):after{	color: #99A9B5FF;}.page-breadcrumbs ul li{	color: #3C3950FF;}.page-breadcrumbs ul li a:hover{	color: #3C3950FF;}.block-content {padding-top: 0px;}.block-content:last-of-type {padding-bottom: 0px;}#top-area {	display: block;}.header-background:before {	opacity: 0;}@media (max-width: 991px) {#page-title {padding-top: 80px;padding-bottom: 80px;}.page-title-inner, body .breadcrumbs{padding-left: 0px;padding-right: 0px;}.page-title-excerpt {margin-top: 18px;}#page-title .page-title-title {margin-top: 0px;}.block-content {}.block-content:last-of-type {}#top-area {	display: block;}}@media (max-width: 767px) {#page-title {padding-top: 80px;padding-bottom: 80px;}.page-title-inner,body .breadcrumbs{padding-left: 0px;padding-right: 0px;}.page-title-excerpt {margin-top: 18px;}#page-title .page-title-title {margin-top: 0px;}.block-content {}.block-content:last-of-type {}#top-area {	display: block;}}
+	</style>
+	<link rel='stylesheet' id='js_composer_front-css'  href='wp-content/plugins/js_composer/assets/css/js_composer.minbdeb.css?ver=6.7.0' type='text/css' media='all' />
+	<link rel='stylesheet' id='thegem-additional-blog-1-css'  href='wp-content/themes/thegem/css/thegem-additional-blog-1f658.css?ver=5.8.1' type='text/css' media='all' />
+	<link rel='stylesheet' id='jquery-fancybox-css'  href='wp-content/themes/thegem/js/fancyBox/jquery.fancybox.minf658.css?ver=5.8.1' type='text/css' media='all' />
+	<link rel='stylesheet' id='thegem-vc_elements-css'  href='wp-content/themes/thegem/css/thegem-vc_elementsf658.css?ver=5.8.1' type='text/css' media='all' />
+	<link rel='stylesheet' id='thegem-portfolio-css'  href='wp-content/themes/thegem/css/thegem-portfoliof658.css?ver=5.8.1' type='text/css' media='all' />
+	<link rel='stylesheet' id='thegem-news-grid-css'  href='wp-content/themes/thegem/css/thegem-news-gridf658.css?ver=5.8.1' type='text/css' media='all' />
+	<link rel='stylesheet' id='wp-block-library-css'  href='wp-includes/css/dist/block-library/style.minf658.css?ver=5.8.1' type='text/css' media='all' />
+	<link rel='stylesheet' id='contact-form-7-css'  href='wp-content/plugins/contact-form-7/includes/css/styles4245.css?ver=5.5.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='ppress-frontend-css'  href='wp-content/plugins/wp-user-avatar/assets/css/frontend.minee9a.css?ver=3.2.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='ppress-flatpickr-css'  href='wp-content/plugins/wp-user-avatar/assets/flatpickr/flatpickr.minee9a.css?ver=3.2.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='ppress-select2-css'  href='wp-content/plugins/wp-user-avatar/assets/select2/select2.minf658.css?ver=5.8.1' type='text/css' media='all' />
+	<link rel='stylesheet' id='thegem_js_composer_front-css'  href='wp-content/themes/thegem/css/thegem-js_composer_columnsf658.css?ver=5.8.1' type='text/css' media='all' />
+<!--[if lt IE 9]>
+	<script type='text/javascript' src='https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/themes/thegem/js/html5.js?ver=3.7.3' id='html5-js'></script>
+<![endif]-->
+	<script type='text/javascript' src='wp-includes/js/jquery/jquery.minaf6c.js?ver=3.6.0' id='jquery-core-js'></script>
+	<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-includes/js/jquery/jquery-migrate.mind617.js?ver=3.3.2' id='jquery-migrate-js'></script>
+	<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/plugins/wp-user-avatar/assets/flatpickr/flatpickr.minf658.js?ver=5.8.1' id='ppress-flatpickr-js'></script>
+	<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/plugins/wp-user-avatar/assets/select2/select2.minf658.js?ver=5.8.1' id='ppress-select2-js'></script>
+	<script type='text/javascript' id='zilla-likes-js-extra'>
+	/* <![CDATA[ */
+	var zilla_likes = {"ajaxurl":"https:\/\/codex-themes.com\/thegem\/sites\/agency-creative-onepager\/wp-admin\/admin-ajax.php"};
+	/* ]]> */
+	</script>
+	<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/plugins/zilla-likes/scripts/zilla-likesf658.js?ver=5.8.1' id='zilla-likes-js'></script>
+	<link rel="https://api.w.org/" href="wp-json/index.html" /><link rel="alternate" type="application/json" href="wp-json/wp/v2/pages/38.json" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc0db0.html?rsd" />
+	<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="wp-includes/wlwmanifest.xml" /> 
+	<meta name="generator" content="WordPress 5.8.1" />
+	<link rel="canonical" href="index.html" />
+	<link rel='shortlink' href='index.html' />
+	<link rel="alternate" type="application/json+oembed" href="wp-json/oembed/1.0/embed8831.json?url=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-creative-onepager%2F" />
+	<link rel="alternate" type="text/xml+oembed" href="wp-json/oembed/1.0/embed99bb?url=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-creative-onepager%2F&amp;format=xml" />
+	<script type="rocketlazyloadscript" async src="https://www.googletagmanager.com/gtag/js?id=UA-45465556-11"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'UA-45465556-11', { 'anonymize_ip': true });
+	gtag('config', 'AW-972114099');
+	</script>
+	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style><meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress."/>
+	<link rel="icon" href="wp-content/themes/thegem/images/favicon.ico" sizes="32x32" />
+	<link rel="icon" href="wp-content/themes/thegem/images/favicon.ico" sizes="192x192" />
+	<link rel="apple-touch-icon" href="wp-content/themes/thegem/images/favicon.ico" />
+	<meta name="msapplication-TileImage" content="https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/themes/thegem/images/favicon.ico" />
+	<script>if(document.querySelector('[data-type="vc_custom-css"]')) {document.head.appendChild(document.querySelector('[data-type="vc_custom-css"]'));}</script>
+	<style type="text/css" data-type="vc_shortcodes-custom-css">.vc_custom_1615803473815{margin-bottom: 0px !important;padding-top: 355px !important;background-position: center !important;background-repeat: no-repeat !important;background-size: contain !important;}.vc_custom_1613564568694{margin-top: -200px !important;margin-bottom: 0px !important;background-color: #1e1f28 !important;}.vc_custom_1601376397987{margin-bottom: 0px !important;background-color: #1e1f28 !important;}.vc_custom_1600116822750{margin-bottom: 0px !important;background-color: #1e1f28 !important;}.vc_custom_1600116067207{margin-bottom: 0px !important;background-color: #1e1f28 !important;}.vc_custom_1600116100862{margin-bottom: 0px !important;background-color: #1e1f28 !important;}.vc_custom_1600181114569{margin-bottom: 0px !important;background-color: #1e1f28 !important;}.vc_custom_1612776027915{padding-top: 0px !important;}.vc_custom_1613565770863{margin-bottom: 0px !important;padding-right: 42px !important;}.vc_custom_1599505339089{margin-bottom: 0px !important;padding-top: 55px !important;padding-left: 35px !important;}.vc_custom_1612769925650{padding-right: 42px !important;}.vc_custom_1612770051392{margin-bottom: 0px !important;padding-top: 55px !important;padding-right: 35px !important;padding-left: 70px !important;}.vc_custom_1613564456361{margin-bottom: 0px !important;padding-left: 42px !important;}.vc_custom_1599676861603{padding-top: 0px !important;}.vc_custom_1602509276200{padding-top: 55px !important;}.vc_custom_1613564866998{padding-right: 30px !important;}.vc_custom_1600250642342{padding-top: 20px !important;padding-right: 30px !important;}.vc_custom_1599673574756{padding-right: 30px !important;}.vc_custom_1600250654252{padding-top: 20px !important;padding-right: 30px !important;}.vc_custom_1602510453759{background-position: center !important;background-repeat: no-repeat !important;background-size: cover !important;}.vc_custom_1612770323999{margin-bottom: 0px !important;padding-right: 42px !important;}.vc_custom_1612770352580{margin-bottom: 0px !important;padding-top: 55px !important;padding-left: 35px !important;}.vc_custom_1599684689636{margin-bottom: 0px !important;}.vc_custom_1612776430343{margin-bottom: 0px !important;padding-top: 55px !important;padding-right: 35px !important;padding-left: 70px !important;}.vc_custom_1612776437901{margin-bottom: 0px !important;padding-left: 42px !important;}.vc_custom_1600250780899{padding-top: 30px !important;}.vc_custom_1600250796944{padding-top: 30px !important;}.vc_custom_1612865300257{padding-top: 0px !important;}.vc_custom_1612778053342{padding-top: 0px !important;}.vc_custom_1599688078399{padding-top: 120px !important;}.vc_custom_1601386901002{padding-top: 0px !important;}.vc_custom_1612771029425{margin-bottom: 0px !important;padding-top: 55px !important;padding-right: 35px !important;padding-left: 0px !important;}.vc_custom_1612771041210{margin-bottom: 0px !important;padding-left: 42px !important;}.vc_custom_1612775203062{margin-bottom: 0px !important;padding-right: 42px !important;}.vc_custom_1613565129322{margin-bottom: 0px !important;padding-top: 55px !important;padding-left: 35px !important;}.vc_custom_1613565579224{margin-bottom: 0px !important;padding-right: 42px !important;}.vc_custom_1599762968088{margin-bottom: 0px !important;padding-top: 55px !important;padding-left: 35px !important;}.vc_custom_1600193808461{padding-left: 50px !important;}</style><noscript><style> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript>
+		
+</head>
+
+
+<body class="home page-template-default page page-id-38 fullscreen-search one-pager wpb-js-composer js-comp-ver-6.7.0 vc_responsive">
+
+	<script type="text/javascript">
+		var gemSettings = {"isTouch":"","forcedLasyDisabled":"","tabletPortrait":"1","tabletLandscape":"","topAreaMobileDisable":"","parallaxDisabled":"","fillTopArea":"","themePath":"https:\/\/codex-themes.com\/thegem\/sites\/agency-creative-onepager\/wp-content\/themes\/thegem","rootUrl":"https:\/\/codex-themes.com\/thegem\/sites\/agency-creative-onepager","mobileEffectsEnabled":"","isRTL":""};
+		(function() {
+    function isTouchDevice() {
+        return (('ontouchstart' in window) ||
+            (navigator.MaxTouchPoints > 0) ||
+            (navigator.msMaxTouchPoints > 0));
+    }
+
+    window.gemSettings.isTouch = isTouchDevice();
+
+    function userAgentDetection() {
+        var ua = navigator.userAgent.toLowerCase(),
+        platform = navigator.platform.toLowerCase(),
+        UA = ua.match(/(opera|ie|firefox|chrome|version)[\s\/:]([\w\d\.]+)?.*?(safari|version[\s\/:]([\w\d\.]+)|$)/) || [null, 'unknown', 0],
+        mode = UA[1] == 'ie' && document.documentMode;
+
+        window.gemBrowser = {
+            name: (UA[1] == 'version') ? UA[3] : UA[1],
+            version: UA[2],
+            platform: {
+                name: ua.match(/ip(?:ad|od|hone)/) ? 'ios' : (ua.match(/(?:webos|android)/) || platform.match(/mac|win|linux/) || ['other'])[0]
+                }
+        };
+            }
+
+    window.updateGemClientSize = function() {
+        if (window.gemOptions == null || window.gemOptions == undefined) {
+            window.gemOptions = {
+                first: false,
+                clientWidth: 0,
+                clientHeight: 0,
+                innerWidth: -1
+            };
+        }
+
+        window.gemOptions.clientWidth = window.innerWidth || document.documentElement.clientWidth;
+        if (document.body != null && !window.gemOptions.clientWidth) {
+            window.gemOptions.clientWidth = document.body.clientWidth;
+        }
+
+        window.gemOptions.clientHeight = window.innerHeight || document.documentElement.clientHeight;
+        if (document.body != null && !window.gemOptions.clientHeight) {
+            window.gemOptions.clientHeight = document.body.clientHeight;
+        }
+    };
+
+    window.updateGemInnerSize = function(width) {
+        window.gemOptions.innerWidth = width != undefined ? width : (document.body != null ? document.body.clientWidth : 0);
+    };
+
+    userAgentDetection();
+    window.updateGemClientSize(true);
+
+    window.gemSettings.lasyDisabled = window.gemSettings.forcedLasyDisabled || (!window.gemSettings.mobileEffectsEnabled && (window.gemSettings.isTouch || window.gemOptions.clientWidth <= 800));
+})();
+		(function() {
+    if (window.gemBrowser.name == 'safari') {
+        try {
+            var safariVersion = parseInt(window.gemBrowser.version);
+        } catch(e) {
+            var safariVersion = 0;
+        }
+        if (safariVersion >= 9) {
+            window.gemSettings.parallaxDisabled = true;
+            window.gemSettings.fillTopArea = true;
+        }
+    }
+})();
+		(function() {
+    var fullwithData = {
+        page: null,
+        pageWidth: 0,
+        pageOffset: {},
+        fixVcRow: true,
+        pagePaddingLeft: 0
+    };
+
+    function updateFullwidthData() {
+        fullwithData.pageOffset = fullwithData.page.getBoundingClientRect();
+        fullwithData.pageWidth = parseFloat(fullwithData.pageOffset.width);
+        fullwithData.pagePaddingLeft = 0;
+
+        if (fullwithData.page.className.indexOf('vertical-header') != -1) {
+            fullwithData.pagePaddingLeft = 45;
+            if (fullwithData.pageWidth >= 1600) {
+                fullwithData.pagePaddingLeft = 360;
+            }
+            if (fullwithData.pageWidth < 980) {
+                fullwithData.pagePaddingLeft = 0;
+            }
+        }
+    }
+
+    function gem_fix_fullwidth_position(element) {
+        if (element == null) {
+            return false;
+        }
+
+        if (fullwithData.page == null) {
+            fullwithData.page = document.getElementById('page');
+            updateFullwidthData();
+        }
+
+        /*if (fullwithData.pageWidth < 1170) {
+            return false;
+        }*/
+
+        if (!fullwithData.fixVcRow) {
+            return false;
+        }
+
+        if (element.previousElementSibling != null && element.previousElementSibling != undefined && element.previousElementSibling.className.indexOf('fullwidth-block') == -1) {
+            var elementParentViewportOffset = element.previousElementSibling.getBoundingClientRect();
+        } else {
+            var elementParentViewportOffset = element.parentNode.getBoundingClientRect();
+        }
+
+        /*if (elementParentViewportOffset.top > window.gemOptions.clientHeight) {
+            fullwithData.fixVcRow = false;
+            return false;
+        }*/
+
+        if (element.className.indexOf('vc_row') != -1) {
+            var elementMarginLeft = -21;
+            var elementMarginRight = -21;
+        } else {
+            var elementMarginLeft = 0;
+            var elementMarginRight = 0;
+        }
+
+        var offset = parseInt(fullwithData.pageOffset.left + 0.5) - parseInt((elementParentViewportOffset.left < 0 ? 0 : elementParentViewportOffset.left) + 0.5) - elementMarginLeft + fullwithData.pagePaddingLeft;
+        var offsetKey = window.gemSettings.isRTL ? 'right' : 'left';
+
+        element.style.position = 'relative';
+        element.style[offsetKey] = offset + 'px';
+        element.style.width = fullwithData.pageWidth - fullwithData.pagePaddingLeft + 'px';
+
+        if (element.className.indexOf('vc_row') == -1) {
+            element.setAttribute('data-fullwidth-updated', 1);
+        }
+
+        if (element.className.indexOf('vc_row') != -1 && !element.hasAttribute('data-vc-stretch-content')) {
+            var el_full = element.parentNode.querySelector('.vc_row-full-width-before');
+            var padding = -1 * offset;
+            0 > padding && (padding = 0);
+            var paddingRight = fullwithData.pageWidth - padding - el_full.offsetWidth + elementMarginLeft + elementMarginRight;
+            0 > paddingRight && (paddingRight = 0);
+            element.style.paddingLeft = padding + 'px';
+            element.style.paddingRight = paddingRight + 'px';
+        }
+    }
+
+    window.gem_fix_fullwidth_position = gem_fix_fullwidth_position;
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var classes = [];
+
+        if (window.gemSettings.isTouch) {
+            document.body.classList.add('thegem-touch');
+        }
+
+        if (window.gemSettings.lasyDisabled && !window.gemSettings.forcedLasyDisabled) {
+            document.body.classList.add('thegem-effects-disabled');
+        }
+    });
+
+    if (window.gemSettings.parallaxDisabled) {
+        var head  = document.getElementsByTagName('head')[0],
+            link  = document.createElement('style');
+        link.rel  = 'stylesheet';
+        link.type = 'text/css';
+        link.innerHTML = ".fullwidth-block.fullwidth-block-parallax-fixed .fullwidth-block-background { background-attachment: scroll !important; }";
+        head.appendChild(link);
+    }
+})();
+
+(function() {
+    setTimeout(function() {
+        var preloader = document.getElementById('page-preloader');
+        if (preloader != null && preloader != undefined) {
+            preloader.className += ' preloader-loaded';
+        }
+    }, window.pagePreloaderHideTime || 1000);
+})();
+	</script>
+	
+
+
+<div id="page" class="layout-fullwidth header-style-3">
+
+			<a href="#page" class="scroll-top-button"></a>
+	
+	
+		
+		<div id="site-header-wrapper"  class="site-header-wrapper-transparent  " >
+			
+			<div class="menu-overlay"></div>
+			<header id="site-header" class="site-header animated-header mobile-menu-layout-overlay" role="banner">
+								
+				<div class="header-background">
+					<div class="container">
+						<div class="header-main logo-position-left header-colors-light header-layout-default header-style-3">
+																							<div class="site-title">
+											<div class="site-logo" style="width:164px;">
+			<a href="index.html" rel="home">
+									<span class="logo"><img src="masummridha.png"  alt="Masum_Mridha_logo" style="width:114%;" class="tgp-exclude default"/><img src="masummridha.png"  alt="Agency Creative Onepager" style="width:132%;" class="tgp-exclude small light"/><img src="masummridha.png" alt="Agency Creative Onepager" style="width:132%;" class="tgp-exclude small"/></span>
+							</a>
+		</div>
+										</div>
+																											<nav id="primary-navigation" class="site-navigation primary-navigation" role="navigation">
+											<button class="menu-toggle dl-trigger">Primary Menu<span class="menu-line-1"></span><span class="menu-line-2"></span><span class="menu-line-3"></span></button><div class="overlay-menu-wrapper"><div class="overlay-menu-table"><div class="overlay-menu-row"><div class="overlay-menu-cell">																							<ul id="primary-menu" class="nav-menu styled no-responsive"><li id="menu-item-238" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-238 megamenu-first-element"><a href="#">Home</a></li>
+<li id="menu-item-239" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-239 megamenu-first-element"><a href="index.html#agency">Agency</a></li>
+<li id="menu-item-240" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-240 megamenu-first-element"><a href="index.html#services">Services</a></li>
+<li id="menu-item-241" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-241 megamenu-first-element"><a href="index.html#cases">Cases</a></li>
+<li id="menu-item-243" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-243 megamenu-first-element"><a href="index.html#contact">Contact</a></li>
+<li class="menu-item menu-item-search "><a href="#"></a><div class="minisearch "><form role="search" id="searchform" class="sf" action="#" method="GET"><input id="searchform-input" class="sf-input" type="text" placeholder="Search..." name="s"><span class="sf-submit-icon"></span><input id="searchform-submit" class="sf-submit" type="submit" value=""></form></div></li></ul>																						</div></div></div></div>										</nav>
+																														</div>
+					</div>
+				</div>
+			</header><!-- #site-header -->
+					</div><!-- #site-header-wrapper -->
+
+	
+	<div id="main" class="site-main page__top-shadow visible">
+
+<div id="main-content" class="main-content">
+
+
+<div class="block-content no-bottom-margin no-top-margin">
+	<div class="container">
+		<div class="panel row">
+
+			<div class="panel-center col-xs-12">
+				<article id="post-38" class="post-38 page type-page status-publish">
+
+					<div class="entry-content post-content">
+                        
+						
+							
+						
+						<div class="vc_row-full-width-before"></div><div id="vc_row-61c824d950fd6" data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid custom-background retina-bg first-row vc_custom_1615803473815 thegem-custom-61c824d950fca5733 vc_row-has-fill"><script type="text/javascript">if (typeof(gem_fix_fullwidth_position) == "function") { gem_fix_fullwidth_position(document.getElementById("vc_row-61c824d950fd6")); }</script><div class="wpb_column vc_column_container vc_col-sm-12 thegem-custom-61c824d95209372"><div class="vc_column-inner thegem-custom-inner-61c824d952094 vc_custom_1612776027915"><div class="wpb_wrapper"><div id="fullwidth-block-61c824d952140" class="fullwidth-block clearfix"  style=""><script type="text/javascript">if (typeof(gem_fix_fullwidth_position) == "function") { gem_fix_fullwidth_position(document.getElementById("fullwidth-block-61c824d952140")); }</script><div class="fullwidth-block-inner">
+	<div class="gem-interactions-enabled   gear-1"  data-vertical_scroll_enable="yes" data-vertical_scroll_speed="-4" >
+	<div  class="wpb_single_image wpb_content_element vc_align_left" >
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="205" height="640" src="wp-content/uploads/2020/09/image-5.png" class="vc_single_image-img attachment-full" alt="" srcset="https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/image-5.png 205w, https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/image-5-96x300.png 96w" sizes="(max-width: 205px) 100vw, 205px" /></div>
+		</figure>
+	</div>
+	</div>
+</div></div><div id="home" class="vc_row wpb_row vc_inner vc_row-fluid custom-inner-column-61c824d953363"><div class="wpb_column vc_column_container vc_col-sm-7 vc_col-lg-offset-0 vc_col-lg-8 vc_col-md-offset-1 vc_col-md-7 vc_col-sm-offset-1 vc_col-xs-12"><div class="vc_column-inner thegem-custom-inner-61c824d953c33 "><div class="wpb_wrapper"><script type="text/javascript">(function() { function TheGemHeading() { this.selector = '.thegem-heading'; this.animateClass = 'thegem-heading-animate'; this.animatedClass = 'thegem-heading-animated'; this.rotatingSelector = '.thegem-heading-rotating'; } TheGemHeading.prototype = { initialize: function () { let items = document.querySelectorAll(this.selector); if ('IntersectionObserver' in window) { let intersectionObserver = new IntersectionObserver((entries, observer)=>{ entries.forEach((entry)=> { if (entry.isIntersecting) { this.startAnimation(entry.target); intersectionObserver.unobserve(entry.target); } }); }); items.forEach((item)=>{ intersectionObserver.observe(item); setTimeout(()=>this.prepareAnimation(item), 300); }); } else { items.forEach((item)=>{ this.prepareAnimation(item); this.startAnimation(item); }); } }, startAnimation: function (element) { if (element.classList.contains(this.animateClass)) { setTimeout(()=>{ element.classList.remove(this.animateClass); element.classList.add(this.animatedClass); }, 300); } let rotatingItem = element.querySelector(this.rotatingSelector); if (typeof(rotatingItem) != 'undefined' && rotatingItem != null) { this.rotating(rotatingItem); } }, isRotating: function (element) { return element.querySelector(this.rotatingSelector) !== null; }, prepareAnimation: function (element) { if (!element || this.isRotating(element)) { return; } const animationName = element.dataset.animationName; const animationDelay = parseInt(element.dataset.animationDelay) || 0; const animationInterval = parseInt(element.dataset.animationInterval) || 0; switch (animationName) { case 'lines-slide-up': case 'lines-slide-up-random': const animationLineTagWrap = '<span class="thegem-heading-line-wrap">'; function animationLineTag (index) { let styles = ''; if (animationName === 'lines-slide-up' && (animationDelay > 0 || animationInterval > 0)) { styles = `animation-delay: ${(animationDelay + (animationInterval*(index+1)))}ms;`; } return '<span class="thegem-heading-line"' + (styles!== '' ? ' style="'+styles+'"' : '') + '>'; } let nodes = element.childNodes; let currentOffset = nodes[0].offsetTop; let index = 0; let idx = 0; let html = animationLineTagWrap + animationLineTag(index); for (let i = 0; i < nodes.length; i++) { if (nodes[i].nodeType === 3) continue; if (nodes[i].offsetTop > currentOffset + nodes[i].scrollHeight/2) { index++; html += '</span></span>' + animationLineTagWrap + animationLineTag(index); currentOffset = nodes[i].offsetTop; if (animationName === 'lines-slide-up-random') idx = 0; } if (animationName === 'lines-slide-up-random' && (animationDelay > 0 || animationInterval > 0)) { nodes[i].style.animationDelay = (animationDelay + animationInterval*(idx+1)) + 'ms'; } html += nodes[i].outerHTML + ' '; if (animationName === 'lines-slide-up-random') idx++; } html += '</span></span>'; element.innerHTML = html; break; } }, rotating: function (element,) { let current = element.querySelector('.thegem-heading-rotating-text'); element.style.width = element.clientWidth+'px'; current.style.width = element.clientWidth+'px'; setInterval(()=>{ let next = current.nextElementSibling !== null ? current.nextElementSibling : element.childNodes[0]; let nextWidth = next.clientWidth; let currentWidth = current.clientWidth; element.style.width = nextWidth + 'px'; current.style.width = '1px'; current.style.opacity = 0; next.style.width = '1px'; setTimeout(()=>{ current.style.position = 'absolute'; current.style.width = currentWidth + 'px'; next.style.position = 'relative'; next.style.opacity = 1; next.style.width = nextWidth + 'px'; current = next; }, 500); }, 2500); } }; window.theGemHeading = new TheGemHeading(); document.addEventListener('DOMContentLoaded', function(event) { window.theGemHeading.initialize(); }); if (window.parent.vc) { window.parent.vc.events.on('shortcodeView:updated', function (event) { let element = event.view.el.querySelector('.thegem-heading'); window.theGemHeading.prepareAnimation(element); window.theGemHeading.startAnimation(element); }); window.parent.vc.events.on('app.render', function () { window.theGemHeading.initialize(); }); }
+})();</script><div id="thegem-heading-61c824d953cee" class="thegem-heading title-xlarge words-slide-right thegem-heading-animate" style="text-align: left; line-height: 0;" ><span class="thegem-heading-word-wrap"><span class="thegem-heading-word" style="color: #ffffff; animation-delay: 20ms">Masum</span></span> <span class="thegem-heading-word-wrap"><span class="thegem-heading-word" style="color: #ffffff; animation-delay: 60ms">Mridha</span></span> <span class="thegem-heading-word-wrap"><span class="thegem-heading-word hfont" style="color: #ffffff; animation-delay: 80ms">Profetional</span></span> <span class="thegem-heading-word-wrap"><span class="thegem-heading-word hfont" style="color: #ffffff; animation-delay: 100ms">Web Developer</span></span></div><style type="text/css">#thegem-heading-61c824d953cee {margin: 0;}</style><div class="clearboth"></div><div class="gem-divider " style="margin-top: 70px;"></div><div id="thegem-heading-61c824d953dd4" class="thegem-heading styled-subtitle tablet-textblock-padding words-slide-right thegem-heading-animate" style="text-align: left;" ><span class="thegem-heading-word-wrap"><span class="thegem-heading-word" style="color: #ffffff; animation-delay: 220ms">I am </span></span> <span class="thegem-heading-word-wrap"><span class="thegem-heading-word" style="color: #ffffff; animation-delay: 240ms">an </span></span> <span class="thegem-heading-word-wrap"><span class="thegem-heading-word" style="color: #ffffff; animation-delay: 260ms">enterprising </span></span> <span class="thegem-heading-word-wrap"><span class="thegem-heading-word" style="color: #ffffff; animation-delay: 280ms">young </span></span> <span class="thegem-heading-word-wrap"></span> <span class="thegem-heading-word-wrap"><span class="thegem-heading-word" style="color: #ffffff; animation-delay: 320ms">professional </span></span> <span class="thegem-heading-word-wrap"><span class="thegem-heading-word" style="color: #ffffff; animation-delay: 340ms">intending </span></span> <span class="thegem-heading-word-wrap"><span class="thegem-heading-word" style="color: #ffffff; animation-delay: 360ms">to continue </span></span> <span class="thegem-heading-word-wrap"><span class="thegem-heading-word" style="color: #ffffff; animation-delay: 380ms">my </span></span> <span class="thegem-heading-word-wrap"><span class="thegem-heading-word" style="color: #ffffff; animation-delay: 400ms">development</span></span> <span class="thegem-heading-word-wrap"><span class="thegem-heading-word" style="color: #ffffff; animation-delay: 420ms">as a consultant.</span></span> <span class="thegem-heading-word-wrap"><span class="thegem-heading-word" style="color: #ffffff; animation-delay: 440ms">I am </span></span> <span class="thegem-heading-word-wrap"><span class="thegem-heading-word" style="color: #ffffff; animation-delay: 460ms">enthusiastic </span></span> <span class="thegem-heading-word-wrap"><span class="thegem-heading-word" style="color: #ffffff; animation-delay: 480ms">and I work </span></span> <span class="thegem-heading-word-wrap"><span class="thegem-heading-word" style="color: #ffffff; animation-delay: 500ms">with decisiveness.</span></span></div><style type="text/css">#thegem-heading-61c824d953dd4 {margin: 0;}#thegem-heading-61c824d953dd4 {max-width: 570px;}</style><div class="clearboth"></div><div class="gem-divider " style="margin-top: 65px;"></div><style type="text/css">.thegem-button-61c824d953e2c4176.lazy-loading-before-start-animation .lazy-loading-item {opacity: 0;}</style><div class="gem-button-container gem-button-position-left thegem-button-61c824d953e2c4176 lazy-loading lazy-loading-before-start-animation" ><a class="gem-button gem-button-size-medium gem-button-style-outline gem-button-text-weight-normal gem-button-border-3 gem-button-no-uppercase lazy-loading-item"data-ll-effect="drop-right-without-wrap" style="border-radius: 50px;border-color: #428dfc;color: #428dfc;" onmouseleave="this.style.borderColor='#428dfc';this.style.backgroundColor='transparent';this.style.color='#428dfc';" onmouseenter="this.style.borderColor='#428dfc';this.style.backgroundColor='#428dfc';this.style.color='#ffffff';" href="index.html#services" target="_self">All services</a></div> </div></div></div><div class="wpb_column vc_column_container vc_col-sm-4 vc_col-lg-4 vc_col-md-4 vc_hidden-xs"><div class="vc_column-inner thegem-custom-inner-61c824d953e8b "><div class="wpb_wrapper">
+	<div class="gem-interactions-enabled   single-image-1"  data-mouse_effects="yes" data-mouse_effects_direction="-1" data-mouse_effects_speed="0.4" data-disable_effects_mobile="disable" ><div class="mouse-effects-container">
+	<div  class="wpb_single_image wpb_content_element vc_align_left" >
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="338" height="256" src="wp-content/uploads/2020/09/image-2.png" class="vc_single_image-img attachment-full" alt="" srcset="https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/image-2.png 338w, https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/image-2-300x227.png 300w" sizes="(max-width: 338px) 100vw, 338px" /></div>
+		</figure>
+	</div>
+	</div></div>
+
+	<div class="gem-interactions-enabled   single-image-2"  data-mouse_effects="yes" data-mouse_effects_direction="1" data-mouse_effects_speed="0.4" data-disable_effects_mobile="disable" ><div class="mouse-effects-container">
+	<div  class="wpb_single_image wpb_content_element vc_align_right" >
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="321" height="328" src="wp-content/uploads/2020/09/image-3.png" class="vc_single_image-img attachment-full" alt="" srcset="https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/image-3.png 321w, https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/image-3-294x300.png 294w" sizes="(max-width: 321px) 100vw, 321px" /></div>
+		</figure>
+	</div>
+	</div></div>
+
+	<div class="gem-interactions-enabled   single-image-3"  data-mouse_effects="yes" data-mouse_effects_direction="-1" data-mouse_effects_speed="0.4" data-disable_effects_mobile="disable" ><div class="mouse-effects-container">
+	<div  class="wpb_single_image wpb_content_element vc_align_left" >
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="466" height="257" src="wp-content/uploads/2020/09/image-4.png" class="vc_single_image-img attachment-full" alt="" srcset="https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/image-4.png 466w, https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/image-4-300x165.png 300w" sizes="(max-width: 466px) 100vw, 466px" /></div>
+		</figure>
+	</div>
+	</div></div>
+</div></div></div></div><div class="clearboth"></div><div class="gem-divider " style="margin-top: 90px;"></div><div id="agency" class="vc_row wpb_row vc_inner vc_row-fluid custom-inner-column-61c824d9543dd"><div class="wpb_column vc_column_container vc_col-sm-9 vc_col-md-6"><div class="vc_column-inner thegem-custom-inner-61c824d954454 "><div class="wpb_wrapper">
+	
+		<div class="wpb_text_column wpb_content_element  wpb_animate_when_almost_visible wpb_fadeIn fadeIn vc_custom_1613565770863 vertical-line-right" >
+			<div class="wpb_wrapper">
+				<div class="title-h1" style="text-align: right;">Smart &amp;<br />
+professional</div>
+
+			</div>
+		</div>
+	
+
+	
+		<div class="wpb_text_column wpb_content_element  wpb_animate_when_almost_visible wpb_bottom-to-top bottom-to-top vc_custom_1599505339089 vertical-line-right-excerpt" >
+			<div class="wpb_wrapper">
+				<div class="title-h5"><span style="color: #e94a47;">ABOUT US</span></div>
+
+			</div>
+		</div>
+	
+</div></div></div></div><div id="fullwidth-block-61c824d954678" class="fullwidth-block clearfix"  style=""><script type="text/javascript">if (typeof(gem_fix_fullwidth_position) == "function") { gem_fix_fullwidth_position(document.getElementById("fullwidth-block-61c824d954678")); }</script><div class="fullwidth-block-inner"><div class="container">
+	
+	<div  class="wpb_single_image wpb_content_element vc_align_left   figure-on-girl tgp-exclude" >
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="785" height="557" src="wp-content/uploads/2020/09/image-6.png" class="vc_single_image-img tgp-exclude attachment-full" alt="" srcset="https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/image-6.png 785w, https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/image-6-300x213.png 300w, https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/image-6-768x545.png 768w" sizes="(max-width: 785px) 100vw, 785px" /></div>
+		</figure>
+	</div>
+	
+<div class="vc_row wpb_row vc_inner vc_row-fluid custom-inner-column-61c824d954872"><div class="wpb_column vc_column_container vc_col-sm-5 vc_col-lg-5 vc_col-md-5 vc_hidden-md vc_hidden-sm vc_hidden-xs"><div class="vc_column-inner thegem-custom-inner-61c824d954927 "><div class="wpb_wrapper">
+	
+	<div  class="wpb_single_image wpb_content_element vc_align_left   gear-2 tgp-exclude" >
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="154" height="177" src="wp-content/uploads/2020/09/image-7.png" class="vc_single_image-img tgp-exclude attachment-full" alt="" /></div>
+		</figure>
+	</div>
+	
+</div></div></div><div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-7 vc_col-md-12"><div class="vc_column-inner thegem-custom-inner-61c824d954b0f "><div class="wpb_wrapper"><div class="clearboth"></div><div class="gem-divider " style="margin-top: 30px;"></div>
+	
+		<div class="wpb_text_column wpb_content_element  wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp vc_custom_1612769925650" >
+			<div class="wpb_wrapper">
+				<div class="styled-subtitle"><span style="color: #ffffff;">My name is Masum Mridha And I'm a Web page Developer. I am working with WordPress since 2017. I have been Working a lot of projects within Short time.
+Now I'm working with WordPress for Clients And They was Happy For my  work.
+Thant you for study me. Have a nice Day..... </span></div>
+
+			</div>
+		</div>
+	
+<div class="clearboth"></div><div class="gem-divider " style="margin-top: 161px;"></div>
+	
+		<div class="wpb_text_column wpb_content_element  wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp vc_custom_1612770051392 vertical-line-left-excerpt" >
+			<div class="wpb_wrapper">
+				<div class="title-h5"><span style="color: #e94a47;">OUR SERVICES</span></div>
+
+			</div>
+		</div>
+	
+
+	
+		<div class="wpb_text_column wpb_content_element  wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp vc_custom_1613564456361 vertical-line-left" >
+			<div class="wpb_wrapper">
+				<div class="title-h1" style="text-align: left;">Creative &amp;<br />
+hardworker</div>
+
+			</div>
+		</div>
+	
+</div></div></div></div></div></div></div></div></div></div></div><div class="vc_row-full-width vc_clearfix"></div><div class="vc_row-full-width-before"></div><div id="services" data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid custom-background-2 vc_custom_1613564568694 thegem-custom-61c824d954cea8308 vc_row-has-fill"><script type="text/javascript">if (typeof(gem_fix_fullwidth_position) == "function") { gem_fix_fullwidth_position(document.getElementById("services")); }</script><div class="wpb_column vc_column_container vc_col-sm-12 thegem-custom-61c824d954dab4193"><div class="vc_column-inner thegem-custom-inner-61c824d954dac vc_custom_1599676861603"><div class="wpb_wrapper"><div id="fullwidth-block-61c824d954f1b" class="fullwidth-block clearfix"  style="padding-top: 115px;"><script type="text/javascript">if (typeof(gem_fix_fullwidth_position) == "function") { gem_fix_fullwidth_position(document.getElementById("fullwidth-block-61c824d954f1b")); }</script><div class="fullwidth-block-background" style="background-image: url(wp-content/uploads/2020/09/image-18.jpg);background-repeat: no-repeat;background-position: center top;"></div><div class="fullwidth-block-inner"><div class="container"><div class="vc_row wpb_row vc_inner vc_row-fluid custom-inner-column-61c824d954fa8"><div class="mobile-custom-top-padding wpb_column vc_column_container vc_col-sm-3 disable-custom-paggings-tablet disable-custom-paggings-mobile"><div class="vc_column-inner thegem-custom-inner-61c824d955020 vc_custom_1613564866998"><div class="wpb_wrapper"><div class="gem-image gem-wrapbox gem-wrapbox-style-default gem-wrapbox-position-below lazy-loading"  style=""><div class="gem-wrapbox-inner  lazy-loading-item"  data-ll-effect="move-up"><img class="gem-wrapbox-element img-responsive" src="wp-content/uploads/2020/09/13.png" alt=""/></div></div><div class="clearboth"></div><div class="gem-divider " style="margin-top: 20px;"></div>
+	
+		<div class="wpb_text_column wpb_content_element  wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp" >
+			<div class="wpb_wrapper">
+				<div class="title-h4">Web<br />
+development</div>
+
+			</div>
+		</div>
+	
+<div class="clearboth"></div><div class="gem-divider " style="margin-top: 20px;"></div>
+	
+		<div class="wpb_text_column wpb_content_element  wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp" >
+			<div class="wpb_wrapper">
+				<p>I try my best to develop the website accordion to the needs of the clients with utmost care</p>
+
+			</div>
+		</div>
+	
+</div></div></div><div class="wpb_column vc_column_container vc_col-sm-3 disable-custom-paggings-tablet disable-custom-paggings-mobile"><div class="vc_column-inner thegem-custom-inner-61c824d9551ee vc_custom_1600250642342"><div class="wpb_wrapper"><div class="clearboth"></div><div class="gem-divider vc_hidden-xs" style="margin-top: 70px;"></div><div class="gem-image gem-wrapbox gem-wrapbox-style-default gem-wrapbox-position-below lazy-loading"  style=""><div class="gem-wrapbox-inner  lazy-loading-item"  data-ll-effect="move-up"><img class="gem-wrapbox-element img-responsive" src="wp-content/uploads/2020/09/14.png" alt=""/></div></div><div class="clearboth"></div><div class="gem-divider " style="margin-top: 20px;"></div>
+	
+		<div class="wpb_text_column wpb_content_element  wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp" >
+			<div class="wpb_wrapper">
+				<div class="title-h4">Design<br />
+coding</div>
+
+			</div>
+		</div>
+	
+
+	
+		<div class="wpb_text_column wpb_content_element  wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp" >
+			<div class="wpb_wrapper">
+				<p>I provides premium website designs that can be customized by clients.</p>
+
+			</div>
+		</div>
+	
+</div></div></div><div class="wpb_column vc_column_container vc_col-sm-3 disable-custom-paggings-tablet disable-custom-paggings-mobile"><div class="vc_column-inner thegem-custom-inner-61c824d9553a4 vc_custom_1599673574756"><div class="wpb_wrapper"><div class="gem-image gem-wrapbox gem-wrapbox-style-default gem-wrapbox-position-below lazy-loading"  style=""><div class="gem-wrapbox-inner  lazy-loading-item"  data-ll-effect="move-up"><img class="gem-wrapbox-element img-responsive" src="wp-content/uploads/2020/09/15.png" alt=""/></div></div><div class="clearboth"></div><div class="gem-divider " style="margin-top: 20px;"></div>
+	
+		<div class="wpb_text_column wpb_content_element  wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp" >
+			<div class="wpb_wrapper">
+				<div class="title-h4">Website<br />
+Maintenance</div>
+
+			</div>
+		</div>
+	
+
+	
+		<div class="wpb_text_column wpb_content_element  wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp" >
+			<div class="wpb_wrapper">
+				<p>Usually Blog Content, text, traffic, SEO, Design are Observe here</p>
+
+			</div>
+		</div>
+	
+</div></div></div><div class="wpb_column vc_column_container vc_col-sm-3 disable-custom-paggings-tablet disable-custom-paggings-mobile"><div class="vc_column-inner thegem-custom-inner-61c824d955558 vc_custom_1600250654252"><div class="wpb_wrapper"><div class="clearboth"></div><div class="gem-divider vc_hidden-xs" style="margin-top: 150px;"></div><div class="gem-image gem-wrapbox gem-wrapbox-style-default gem-wrapbox-position-below lazy-loading"  style=""><div class="gem-wrapbox-inner  lazy-loading-item"  data-ll-effect="move-up"><img class="gem-wrapbox-element img-responsive" src="wp-content/uploads/2020/09/16.png" alt=""/></div></div><div class="clearboth"></div><div class="gem-divider " style="margin-top: 20px;"></div>
+	
+		<div class="wpb_text_column wpb_content_element  wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp" >
+			<div class="wpb_wrapper">
+				<div class="title-h4">Seo<br />
+services</div>
+
+			</div>
+		</div>
+	
+
+	
+		<div class="wpb_text_column wpb_content_element  wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp" >
+			<div class="wpb_wrapper">
+				<p>All the SEO work is done to get the website to the target market quickly.</p>
+
+			</div>
+		</div>
+	
+</div></div></div></div><div class="vc_row wpb_row vc_inner vc_row-fluid vc_custom_1602509276200 vc_row-o-equal-height vc_row-flex custom-inner-column-61c824d95571a"><div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-6 vc_col-md-9 vc_col-xs-12"><div class="vc_column-inner thegem-custom-inner-61c824d9557b8 "><div class="wpb_wrapper">
+	
+		<div class="wpb_text_column wpb_content_element  wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp vc_custom_1612770323999 vertical-line-right" >
+			<div class="wpb_wrapper">
+				<div class="title-h1" style="text-align: right;">Our work<br />
+process</div>
+
+			</div>
+		</div>
+	
+
+	
+		<div class="wpb_text_column wpb_content_element  wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp vc_custom_1612770352580 vertical-line-right-excerpt" >
+			<div class="wpb_wrapper">
+				<div class="title-h5"><span style="color: #e94a47;">HOW WE DO IT</span></div>
+
+			</div>
+		</div>
+	
+<div class="clearboth"></div><div class="gem-divider " style="margin-top: 80px;"></div><div class="vc_tta-container" data-vc-action="collapse"><div class="vc_general vc_tta vc_tta-accordion vc_tta-color-thegem vc_tta-style-simple_solid vc_tta-shape-square vc_tta-o-shape-group vc_tta-controls-align-left wpb_animate_when_almost_visible wpb_fadeIn fadeIn" ><div class="vc_tta-panels-container"><div class="vc_tta-panels"><div class="vc_tta-panel vc_active" id="1599674686432-5700d291-0d6a" data-vc-content=".vc_tta-panel-body"><div class="vc_tta-panel-heading"><h4 class="vc_tta-panel-title vc_tta-controls-icon-position-right"><a href="#1599674686432-5700d291-0d6a" data-vc-accordion data-vc-container=".vc_tta-container"><span class="vc_tta-title-text">01. Can you make custom websites based on my requirement ?</span><i class="vc_tta-controls-icon vc_tta-controls-icon-solid_rounded"></i></a></h4></div><div class="vc_tta-panel-body">
+	
+		<div class="wpb_text_column wpb_content_element " >
+			<div class="wpb_wrapper">
+				<p>yes, but please contact me in inbox and discuss me about your project and other order requirements you might have with me before placing the order</p>
+
+			</div>
+		</div>
+	
+</div></div><div class="vc_tta-panel" id="1599674686432-724dec60-638c" data-vc-content=".vc_tta-panel-body"><div class="vc_tta-panel-heading"><h4 class="vc_tta-panel-title vc_tta-controls-icon-position-right"><a href="#1599674686432-724dec60-638c" data-vc-accordion data-vc-container=".vc_tta-container"><span class="vc_tta-title-text">02. Do i have to provide image, content for Website?</span><i class="vc_tta-controls-icon vc_tta-controls-icon-solid_rounded"></i></a></h4></div><div class="vc_tta-panel-body">
+	
+		<div class="wpb_text_column wpb_content_element " >
+			<div class="wpb_wrapper">
+				<p>Yes, It will be better if you provide because it will save your time in future in replacing dummy content.</p>
+
+			</div>
+		</div>
+	
+</div></div><div class="vc_tta-panel" id="1599676190669-f1ec36f1-e447" data-vc-content=".vc_tta-panel-body"><div class="vc_tta-panel-heading"><h4 class="vc_tta-panel-title vc_tta-controls-icon-position-right"><a href="#1599676190669-f1ec36f1-e447" data-vc-accordion data-vc-container=".vc_tta-container"><span class="vc_tta-title-text">03. Do i have to provide image, content for Website?</span><i class="vc_tta-controls-icon vc_tta-controls-icon-solid_rounded"></i></a></h4></div><div class="vc_tta-panel-body">
+	
+		<div class="wpb_text_column wpb_content_element " >
+			<div class="wpb_wrapper">
+				<p>Yes, It will be better if you provide because it will save your time in future in replacing dummy content.</p>
+
+			</div>
+		</div>
+	
+</div></div><div class="vc_tta-panel" id="1599676193545-a4da707d-318c" data-vc-content=".vc_tta-panel-body"><div class="vc_tta-panel-heading"><h4 class="vc_tta-panel-title vc_tta-controls-icon-position-right"><a href="#1599676193545-a4da707d-318c" data-vc-accordion data-vc-container=".vc_tta-container"><span class="vc_tta-title-text">04. Will you upload website on my server/hosting/cPanel?</span><i class="vc_tta-controls-icon vc_tta-controls-icon-solid_rounded"></i></a></h4></div><div class="vc_tta-panel-body">
+	
+		<div class="wpb_text_column wpb_content_element " >
+			<div class="wpb_wrapper">
+				<p>If you have hosting/ C Panel logins or WordPress installed on your domain I will be able to do it for you.</p>
+
+			</div>
+		</div>
+	
+</div></div></div></div></div></div></div></div></div>
+
+<div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-6 vc_col-md-3 vc_col-xs-12 vc_col-has-fill"><div class="vc_column-inner thegem-custom-inner-61c824d955da0 vc_custom_1602510453759"><div class="wpb_wrapper">
+	
+	<div  class="wpb_single_image wpb_content_element vc_align_right   figure-work" >
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="770" height="563" src="wp-content/uploads/2020/09/image-19.png" class="vc_single_image-img attachment-full" alt="" srcset="https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/image-19.png 770w, https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/image-19-300x219.png 300w, https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/image-19-768x562.png 768w" sizes="(max-width: 770px) 100vw, 770px" /></div>
+		</figure>
+	</div>
+	
+</div></div></div></div></div></div></div></div></div></div></div><div class="vc_row-full-width vc_clearfix"></div><div class="vc_row-full-width-before"></div><div id="vc_row-61c824d956072" data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid retina-bg vc_custom_1601376397987 thegem-custom-61c824d95606b6912 vc_row-has-fill"><script type="text/javascript">if (typeof(gem_fix_fullwidth_position) == "function") { gem_fix_fullwidth_position(document.getElementById("vc_row-61c824d956072")); }</script><div class="wpb_column vc_column_container vc_col-sm-12 thegem-custom-61c824d956141593"><div class="vc_column-inner thegem-custom-inner-61c824d956142 "></div></div></div></div></div><div class="vc_row-full-width vc_clearfix"></div><div class="vc_row-full-width-before"></div><div id="cases" data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid retina-bg vc_custom_1600116822750 thegem-custom-61c824d9571848945 vc_row-has-fill"><script type="text/javascript">if (typeof(gem_fix_fullwidth_position) == "function") { gem_fix_fullwidth_position(document.getElementById("cases")); }</script><div class="wpb_column vc_column_container vc_col-sm-12 thegem-custom-61c824d95724079"><div class="vc_column-inner thegem-custom-inner-61c824d957241 vc_custom_1612778053342"><div class="wpb_wrapper"><div id="fullwidth-block-61c824d9573db" class="fullwidth-block clearfix"  style=""><script type="text/javascript">if (typeof(gem_fix_fullwidth_position) == "function") { gem_fix_fullwidth_position(document.getElementById("fullwidth-block-61c824d9573db")); }</script><div class="fullwidth-block-background" style="background-image: url(wp-content/uploads/2020/09/image-10.jpg);background-repeat: no-repeat;background-position: center bottom;"></div><div class="fullwidth-block-inner"><div class="container"><div class="clearboth"></div><div class="gem-divider " style="margin-top: 145px;"></div>
+	
+		<div class="wpb_text_column wpb_content_element  wpb_animate_when_almost_visible wpb_fadeIn fadeIn" >
+			<div class="wpb_wrapper">
+				<div class="title-h5" style="text-align: center;"><span style="color: #e94a47;">PROJECTS</span></div>
+
+			</div>
+		</div>
+	
+
+	
+		<div class="wpb_text_column wpb_content_element  wpb_animate_when_almost_visible wpb_fadeIn fadeIn" >
+			<div class="wpb_wrapper">
+				<div class="title-h1" style="text-align: center;">Case studies</div>
+
+			</div>
+		</div>
+	
+<div class="clearboth"></div><div class="gem-divider " style="margin-top: 75px;"></div><div class="portfolio-preloader-wrapper"> <div class="portfolio portfolio-grid no-padding portfolio-pagination-more portfolio-style-justified background-style-dark title-style-light hover-horizontal-sliding title-on-page caption-position-right loading-animation item-animation-move-up columns-3 disable-isotope next-page-preloading filters-preloading" data-portfolio-uid="8658c80" data-current-page="1" data-per-page="3" data-next-page="0" data-pages-count="1" data-hover="horizontal-sliding"> <div class="portfolio-row-outer "> <div class="row portfolio-row" style="margin: -21px;"> <div class="portfolio-set clearfix" data-max-row-height="380"> 
+	<div class="portfolio-item marketing-support col-md-4 col-xs-4 item-animations-not-inited post-120 thegem_pf_item type-thegem_pf_item status-publish has-post-thumbnail" style="padding: 21px;" data-default-sort="0" data-sort-date="1599685713"> <div class="wrap clearfix" style="border-bottom-color: "> <div class="image post-120 thegem_pf_item type-thegem_pf_item status-publish has-post-thumbnail"> <div class="image-inner"> <picture> <source srcset="https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/18-thegem-portfolio-justified-2x-500.jpg 1x, https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/18-thegem-portfolio-justified.jpg 2x" media="(max-width: 550px)" sizes="100vw"> <source srcset="https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/18-thegem-portfolio-justified-3x.jpg 1x, https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/18-thegem-portfolio-justified.jpg 2x" media="(max-width: 1920px)" sizes="100vw"> <img src="wp-content/uploads/2020/09/18-thegem-portfolio-justified.jpg" width="800" height="767" class="attachment-thegem-portfolio-justified" alt="Market intelligence" /> </picture> </div> <div class="overlay"> <div class="overlay-circle"></div> <div class="links-wrapper"> <div class="links"> <div class="portfolio-icons"> <a href="https://ovolohotels.com/" target="_blank" class="icon outer-link "><i class="default"></i></a> <a href="wp-content/uploads/2020/09/ovolohotels.png" target="_self" class="icon full-image fancy"><i class="default"></i></a> <div class="overlay-line"></div> </div> </div> </div> </div> </div> <div class="caption post-120 thegem_pf_item type-thegem_pf_item status-publish has-post-thumbnail" style="background-color: rgba(0,0,0,0.01)"> <div class="title" > Ovolo Hotels </div> <div class="caption-separator" style="background-color: #e94a47"></div> <div class="info"> 29 September, 2020 </div> </div> </div> </div> 
+	
+	<div class="portfolio-item marketing-support col-md-4 col-xs-4 item-animations-not-inited post-121 thegem_pf_item type-thegem_pf_item status-publish has-post-thumbnail" style="padding: 21px;" data-default-sort="0" data-sort-date="1599685796"> <div class="wrap clearfix" style="border-bottom-color: "> <div class="image post-121 thegem_pf_item type-thegem_pf_item status-publish has-post-thumbnail"> <div class="image-inner"> <picture> <source srcset="https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/19-thegem-portfolio-justified-2x-500.jpg 1x, https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/19-thegem-portfolio-justified.jpg 2x" media="(max-width: 550px)" sizes="100vw"> <source srcset="https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/19-thegem-portfolio-justified-3x.jpg 1x, https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/19-thegem-portfolio-justified.jpg 2x" media="(max-width: 1920px)" sizes="100vw"> <img src="wp-content/uploads/2020/09/19-thegem-portfolio-justified.jpg" width="800" height="767" class="attachment-thegem-portfolio-justified" alt="Beginner’s guide" /> </picture> </div> <div class="overlay"> <div class="overlay-circle"></div> <div class="links-wrapper"> <div class="links"> <div class="portfolio-icons"> <a href="wp-content/uploads/2020/09/plc.png" target="_self" class="icon full-image fancy"><i class="default"></i></a> <a href="https://plcinverterhmi.com" target="_blank" class="icon outer-link "><i class="default"></i></a> <div class="overlay-line"></div> </div> </div> </div> </div> </div> <div class="caption post-121 thegem_pf_item type-thegem_pf_item status-publish has-post-thumbnail" style="background-color: rgba(0,0,0,0.01)"> <div class="title" > PlcUnverterHmi </div> <div class="caption-separator" style="background-color: #e94a47"></div> <div class="info"> 12 March, 2020 </div> </div> </div> </div> 
+	
+	<div class="portfolio-item marketing-support col-md-4 col-xs-4 item-animations-not-inited post-122 thegem_pf_item type-thegem_pf_item status-publish has-post-thumbnail" style="padding: 21px;" data-default-sort="0" data-sort-date="1599685879"> <div class="wrap clearfix" style="border-bottom-color: "> <div class="image post-122 thegem_pf_item type-thegem_pf_item status-publish has-post-thumbnail"> <div class="image-inner"> <picture> <source srcset="https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/20-thegem-portfolio-justified-2x-500.jpg 1x, https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/20-thegem-portfolio-justified.jpg 2x" media="(max-width: 550px)" sizes="100vw"> <source srcset="https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/20-thegem-portfolio-justified-3x.jpg 1x, https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/20-thegem-portfolio-justified.jpg 2x" media="(max-width: 1920px)" sizes="100vw"> <img src="wp-content/uploads/2020/09/20-thegem-portfolio-justified.jpg" width="800" height="767" class="attachment-thegem-portfolio-justified" alt="SEO optimization" /> </picture> </div> <div class="overlay"> <div class="overlay-circle"></div> <div class="links-wrapper"> <div class="links"> <div class="portfolio-icons"> <a href="wp-content/uploads/2020/09/justgiving.jpeg" target="_self" class="icon full-image fancy"><i class="default"></i></a> <a href="https://www.justgiving.com" target="_blank" class="icon outer-link "><i class="default"></i></a> <div class="overlay-line"></div> </div> </div> </div> </div> </div> <div class="caption post-122 thegem_pf_item type-thegem_pf_item status-publish has-post-thumbnail" style="background-color: rgba(0,0,0,0.01)"> <div class="title" > JustGiving </div> <div class="caption-separator" style="background-color: #e94a47"></div> <div class="info"> 10 November, 2020 </div> </div> </div> </div> 
+	
+	</div><!-- .portflio-set --> <div class="portfolio-item-size-container"> <div class="portfolio-item col-md-4 col-xs-4 item-animations-not-inited post-122 thegem_pf_item type-thegem_pf_item status-publish has-post-thumbnail" style="padding: 0 21px !important;"> </div> </div> </div><!-- .row--> </div><!-- .full-width --> </div><!-- .portfolio--> </div><!-- .portfolio-preloader-wrapper--><div class="clearboth"></div><div class="gem-divider " style="margin-top: 50px;"></div><div class="vc_row wpb_row vc_inner vc_row-fluid vc_custom_1599688078399 custom-inner-column-61c824d958631"><div class="wpb_column vc_column_container vc_col-sm-4 vc_col-lg-4 vc_col-md-4"><div class="vc_column-inner thegem-custom-inner-61c824d9586ff "><div class="wpb_wrapper">
+	<div class="gem-interactions-enabled   gear-3"  data-vertical_scroll_enable="yes" data-vertical_scroll_speed="4" >
+	<div  class="wpb_single_image wpb_content_element vc_align_left" >
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="249" height="207" src="wp-content/uploads/2020/09/image-11.png" class="vc_single_image-img attachment-full" alt="" /></div>
+		</figure>
+	</div>
+	</div>
+</div></div></div><div class="wpb_column vc_column_container vc_col-sm-7 vc_col-lg-offset-1 vc_col-lg-7 vc_col-md-offset-1 vc_col-md-7 vc_col-sm-offset-1 vc_col-xs-offset-4 vc_col-xs-8"><div class="vc_column-inner thegem-custom-inner-61c824d9588b8 "><div class="wpb_wrapper">
+	
+		<div class="wpb_text_column wpb_content_element  wpb_animate_when_almost_visible wpb_fadeIn fadeIn vc_custom_1612771029425 vertical-line-left-excerpt" >
+			<div class="wpb_wrapper">
+				<div class="title-h5"><span style="color: #e94a47;">BEST TRAFFIC</span></div>
+
+			</div>
+		</div>
+	
+
+	
+		<div class="wpb_text_column wpb_content_element  wpb_animate_when_almost_visible wpb_fadeIn fadeIn vc_custom_1612771041210 vertical-line-left" >
+			<div class="wpb_wrapper">
+				<div class="title-h1" style="text-align: left;">We know<br />
+the solution</div>
+
+			</div>
+		</div>
+	
+<div class="clearboth"></div><div class="gem-divider " style="margin-top: 70px;"></div>
+	
+		<div class="wpb_text_column wpb_content_element  wpb_animate_when_almost_visible wpb_fadeIn fadeIn" >
+			<div class="wpb_wrapper">
+				<div class="styled-subtitle"><span style="color: #ffffff;">I always try to find the problem and find easy solution. So that the problem can be solved in a short time. </span></div>
+
+			</div>
+		</div>
+	
+</div></div></div><div class="wpb_column vc_column_container vc_col-sm-7 vc_col-lg-offset-5 vc_col-lg-7 vc_col-md-offset-5 vc_col-md-7 vc_col-sm-offset-5 vc_col-xs-12"><div class="vc_column-inner thegem-custom-inner-61c824d958a06 vc_custom_1601386901002"><div class="wpb_wrapper"><div class="clearboth"></div><div class="gem-divider " style="margin-top: 50px;"></div><div class="diagram-item"><div class="diagram-wrapper style-2"><div class="lazy-loading lazy-loading-not-hide" data-ll-item-delay="0" ><div class="digram-line-box lazy-loading-item" data-ll-effect="action" data-ll-action-func="thegem_start_line_digram" style="background-color: rgba(0,0,0,0.01)"><div class="skill-element"><div class="skill-title" style="color: ">HTML5 </div><div class="clearfix"><div style="color:#428dfc" class="skill-amount">0%</div><div class="skill-line" style="background-color: #3e3f4c"><div data-amount="94" style="width: 0; background: #428dfc;"></div></div></div></div><div class="skill-element"><div class="skill-title" style="color: ">CSS3 </div><div class="clearfix"><div style="color:#2d3ede" class="skill-amount">0%</div><div class="skill-line" style="background-color: #3e3f4c"><div data-amount="91" style="width: 0; background: #2d3ede;"></div></div></div></div><div class="skill-element"><div class="skill-title" style="color: ">Java </div><div class="clearfix"><div style="color:#bbe620" class="skill-amount">0%</div><div class="skill-line" style="background-color: #3e3f4c"><div data-amount="81" style="width: 0; background: #bbe620"></div></div></div></div><div class="skill-element"><div class="skill-title" style="color: ">PHP </div><div class="clearfix"><div style="color:#20e6b5" class="skill-amount">0%</div><div class="skill-line" style="background-color: #3e3f4c"><div data-amount="85" style="width: 0; background: #20e6b5;"></div></div></div></div><div class="skill-element"><div class="skill-title" style="color: ">jQuery </div><div class="clearfix"><div style="color:#20e62a" class="skill-amount">0%</div><div class="skill-line" style="background-color: #3e3f4c"><div data-amount="85" style="width: 0; background: #20e62a"></div></div></div></div><div class="skill-element"><div class="skill-title" style="color: ">WordPress </div><div class="clearfix"><div style="color:#082b6b;" class="skill-amount">0%</div><div class="skill-line" style="background-color: #3e3f4c"><div data-amount="92" style="width: 0; background: #082b6b;"></div></div></div></div><div class="skill-element"><div class="skill-title" style="color: ">SEO </div><div class="clearfix"><div style="color:#d620e6" class="skill-amount">0%</div><div class="skill-line" style="background-color: #3e3f4c"><div data-amount="81" style="width: 0; background: #d620e6;"></div></div></div></div></div></div></div></div></div></div></div></div><div class="clearboth"></div></div></div></div><div id="fullwidth-block-61c824d958c89" class="fullwidth-block clearfix"  style=""><script type="text/javascript">if (typeof(gem_fix_fullwidth_position) == "function") { gem_fix_fullwidth_position(document.getElementById("fullwidth-block-61c824d958c89")); }</script><div class="fullwidth-block-inner">
+	<div class="gem-interactions-enabled   gear-4"  data-vertical_scroll_enable="yes" data-vertical_scroll_speed="-4" >
+	<div  class="wpb_single_image wpb_content_element vc_align_left" >
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="205" height="641" src="wp-content/uploads/2020/09/image-12.png" class="vc_single_image-img attachment-full" alt="" srcset="https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/image-12.png 205w, https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/image-12-96x300.png 96w" sizes="(max-width: 205px) 100vw, 205px" /></div>
+		</figure>
+	</div>
+	</div>
+</div></div></div></div></div></div><div class="vc_row-full-width vc_clearfix"></div><div class="vc_row-full-width-before"></div><div id="vc_row-61c824d958ead" data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_custom_1600116067207 thegem-custom-61c824d958ea6612 vc_row-has-fill"><script type="text/javascript">if (typeof(gem_fix_fullwidth_position) == "function") { gem_fix_fullwidth_position(document.getElementById("vc_row-61c824d958ead")); }</script><div class="wpb_column vc_column_container vc_col-sm-12 thegem-custom-61c824d958f7e8428"><div class="vc_column-inner thegem-custom-inner-61c824d958f7f "><div class="wpb_wrapper"><div data-number-format="(ddd).ddd" class="gem-counter-box row inline-row inline-row-center gem-counter-style-1 lazy-loading lazy-loading-not-hide" ><div class="gem-counter col-md-3 col-sm-4 col-xs-6 inline-column gem-counter-effect-simple" ><div class="gem-counter-inner" style="background-color: rgba(0,0,0,0.01)"><div class="gem-counter-number" style="color: #428dfc"><div class="gem-counter-odometer" data-to="122">112</div></div><div class="gem-counter-text styled-subtitle" style="color: #ffffff">Completed projects</div><div class="gem-counter-bottom"><div class="gem-counter-bottom-left" style="background-color: rgba(0,0,0,0.01);"></div><svg width="20" height="10" style="fill: rgba(0,0,0,0.01);"><path d="M 0,0 0,10 2,10 C 2,-2 18,-2, 18,10 L 20,10 20,0 " /></svg><div class="gem-counter-bottom-right" style="background-color: rgba(0,0,0,0.01);"></div></div></div></div><div class="gem-counter col-md-3 col-sm-4 col-xs-6 inline-column gem-counter-effect-simple" ><div class="gem-counter-inner" style="background-color: rgba(0,0,0,0.01)"><div class="gem-counter-number" style="color: #428dfc"><div class="gem-counter-odometer" data-to="74">74</div></div><div class="gem-counter-text styled-subtitle" style="color: #ffffff">Clients overall</div><div class="gem-counter-bottom"><div class="gem-counter-bottom-left" style="background-color: rgba(0,0,0,0.01);"></div><svg width="20" height="10" style="fill: rgba(0,0,0,0.01);"><path d="M 0,0 0,10 2,10 C 2,-2 18,-2, 18,10 L 20,10 20,0 " /></svg><div class="gem-counter-bottom-right" style="background-color: rgba(0,0,0,0.01);"></div></div></div></div><div class="gem-counter col-md-3 col-sm-4 col-xs-6 inline-column gem-counter-effect-simple" ><div class="gem-counter-inner" style="background-color: rgba(0,0,0,0.01)"><div class="gem-counter-number" style="color: #428dfc"><div class="gem-counter-odometer" data-to="28">28</div></div><div class="gem-counter-text styled-subtitle" style="color: #ffffff">Frequent clients</div><div class="gem-counter-bottom"><div class="gem-counter-bottom-left" style="background-color: rgba(0,0,0,0.01);"></div><svg width="20" height="10" style="fill: rgba(0,0,0,0.01);"><path d="M 0,0 0,10 2,10 C 2,-2 18,-2, 18,10 L 20,10 20,0 " /></svg><div class="gem-counter-bottom-right" style="background-color: rgba(0,0,0,0.01);"></div></div></div></div><div class="gem-counter col-md-3 col-sm-4 col-xs-6 inline-column gem-counter-effect-simple" ><div class="gem-counter-inner" style="background-color: rgba(0,0,0,0.01)"><div class="gem-counter-number" style="color: #428dfc"><div class="gem-counter-odometer" data-to="4.5">4.5</div></div><div class="gem-counter-text styled-subtitle" style="color: #ffffff">Rating</div><div class="gem-counter-bottom"><div class="gem-counter-bottom-left" style="background-color: rgba(0,0,0,0.01);"></div><svg width="20" height="10" style="fill: rgba(0,0,0,0.01);"><path d="M 0,0 0,10 2,10 C 2,-2 18,-2, 18,10 L 20,10 20,0 " /></svg><div class="gem-counter-bottom-right" style="background-color: rgba(0,0,0,0.01);"></div></div></div></div></div></div></div></div></div><div class="vc_row-full-width vc_clearfix"></div><div class="vc_row-full-width-before"></div><div id="vc_row-61c824d959105" data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid custom-background-2 vc_custom_1600116100862 thegem-custom-61c824d9590fe8915 vc_row-has-fill"><script type="text/javascript">if (typeof(gem_fix_fullwidth_position) == "function") { gem_fix_fullwidth_position(document.getElementById("vc_row-61c824d959105")); }</script><div class="wpb_column vc_column_container vc_col-sm-12 thegem-custom-61c824d9591b83214"><div class="vc_column-inner thegem-custom-inner-61c824d9591b9 "><div class="wpb_wrapper">
+	<div class="gem-interactions-enabled   bg-1"  data-vertical_scroll_enable="yes" data-vertical_scroll_speed="4" data-disable_effects_mobile="disable" >
+	<div  class="wpb_single_image wpb_content_element vc_align_center" >
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="1119" height="850" src="wp-content/uploads/2020/09/image-8.png" class="vc_single_image-img attachment-full" alt="" srcset="https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/image-8.png 1119w, https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/image-8-300x228.png 300w, https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/image-8-1024x778.png 1024w, https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/image-8-768x583.png 768w" sizes="(max-width: 1119px) 100vw, 1119px" /></div>
+		</figure>
+	</div>
+	</div>
+<div id="fullwidth-block-61c824d9593cd" class="fullwidth-block clearfix"  style=""><script type="text/javascript">if (typeof(gem_fix_fullwidth_position) == "function") { gem_fix_fullwidth_position(document.getElementById("fullwidth-block-61c824d9593cd")); }</script><div class="fullwidth-block-inner"><div class="container"><div class="clearboth"></div><div class="gem-divider " style="margin-top: 55px;"></div>
+	
+		<div class="wpb_text_column wpb_content_element  wpb_animate_when_almost_visible wpb_fadeIn fadeIn" >
+			<div class="wpb_wrapper">
+				<div class="title-h5" style="text-align: center;"><span style="color: #e94a47;">TESTIMONIALS</span></div>
+
+			</div>
+		</div>
+	
+
+	
+		<div class="wpb_text_column wpb_content_element  wpb_animate_when_almost_visible wpb_fadeIn fadeIn" >
+			<div class="wpb_wrapper">
+				<div class="title-h1" style="text-align: center;">Client’s saying</div>
+
+			</div>
+		</div>
+	
+<div class="clearboth"></div><div class="gem-divider " style="margin-top: 80px;"></div><div class="preloader"><div class="preloader-spin"></div></div><div class="size-medium style1 gem-testimonials" data-autoscroll="5000" style=background-color:> <div id="post-156" class="gem-testimonial-item post-156 thegem_testimonial type-thegem_testimonial status-publish has-post-thumbnail"> <div class="gem-testimonial-wrapper quote-color-added "> <div class="gem-testimonial-image"> <img width="160" height="160" src="wp-content/uploads/2020/09/mich.png" class="img-responsive img-circle wp-post-image" alt="9" srcset="https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/9.jpg 2x" sizes="100vw" /> </div> <div class="gem-testimonial-content"> <div class="gem-testimonial-name" style="color: #e94a47">arcuador</div> <div class="gem-testimonial-position" style="color: #99a9b5">MICH consultant</div> <div class="gem-testimonial-text" style="color: #ffffff"> <div class="styled-subtitle"><span style="color: #ffffff;">Excellent Job and had a great time working with him. Kept me updated all the time. And was an absolute pleasure working with him. Always made sure my needs was met and never gave up on my satisfaction on the website. Will definitely do more business with him in the future</span></div> </div> </div> <span style="color: #2834a2 " class="custom-color-blockqute-mark">&#xe60c;</span> </div> </div> <div id="post-160" class="gem-testimonial-item post-160 thegem_testimonial type-thegem_testimonial status-publish has-post-thumbnail"> <div class="gem-testimonial-wrapper quote-color-added "> <div class="gem-testimonial-image"> <img width="160" height="160" src="wp-content/uploads/2020/09/10-thegem-person-160.jpg" class="img-responsive img-circle wp-post-image" alt="10" srcset="https://codex-themes.com/thegem/sites/agency-creative-onepager/wp-content/uploads/2020/09/10.jpg 2x" sizes="100vw" /> </div> <div class="gem-testimonial-content"> <div class="gem-testimonial-name" style="color: #e94a47">Stiven</div> <div class="gem-testimonial-position" style="color: #99a9b5">JustGiving</div> <div class="gem-testimonial-text" style="color: #ffffff"> <p>Great seller. Good communication. Worked to resolve issues. Best of all... fast. Would recommend. </p> </div> </div> <span style="color: #2834a2 " class="custom-color-blockqute-mark">&#xe60c;</span> </div> </div> <div class="testimonials_svg"><svg style="fill: " width="100" height="50"><path d="M 0,-1 Q 45,5 50,50 Q 55,5 100,-1" /></svg></div></div><div class="clearboth"></div><div class="gem-divider " style="margin-top: 120px;"></div>
+
+</div></div></div>
+	<div class="gem-interactions-enabled   bg-2"  data-vertical_scroll_enable="yes" data-vertical_scroll_speed="4" data-disable_effects_mobile="disable" >
+	<div  class="wpb_single_image wpb_content_element vc_align_right" >
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="191" height="185" src="wp-content/uploads/2020/09/image-9.png" class="vc_single_image-img attachment-full" alt="" /></div>
+		</figure>
+	</div>
+	</div>
+</div></div></div></div><div class="vc_row-full-width vc_clearfix"></div><div class="vc_row-full-width-before"></div>
+
+<div id="vc_row-61c824d95c18b" data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid retina-bg vc_custom_1600181114569 thegem-custom-61c824d95c1847454 vc_row-has-fill"><script type="text/javascript">if (typeof(gem_fix_fullwidth_position) == "function") { gem_fix_fullwidth_position(document.getElementById("vc_row-61c824d95c18b")); }</script><div class="wpb_column vc_column_container vc_col-sm-12 thegem-custom-61c824d95c25e5471"><div class="vc_column-inner thegem-custom-inner-61c824d95c25f "><div class="wpb_wrapper"><div id="fullwidth-block-61c824d95c3be" class="fullwidth-block clearfix"  style=""><script type="text/javascript">if (typeof(gem_fix_fullwidth_position) == "function") { gem_fix_fullwidth_position(document.getElementById("fullwidth-block-61c824d95c3be")); }</script><div class="fullwidth-block-background" style="background-image: url(wp-content/uploads/2020/09/image-14.jpg);background-repeat: no-repeat;background-position: center bottom;"></div><div class="fullwidth-block-inner"><div class="container"><div class="clearboth"></div><div id="contact" class="vc_row wpb_row vc_inner vc_row-fluid custom-inner-column-61c824d95cebb"><div class="wpb_column vc_column_container vc_col-sm-2 vc_hidden-sm vc_hidden-xs"><div class="vc_column-inner thegem-custom-inner-61c824d95cf3b "><div class="wpb_wrapper"></div></div></div>
+<div class="wpb_column vc_column_container vc_col-sm-10 vc_col-md-offset-0 vc_col-md-8 vc_col-sm-offset-2"><div class="vc_column-inner thegem-custom-inner-61c824d95cf91 "><div class="wpb_wrapper">
+	
+		<div class="wpb_text_column wpb_content_element  wpb_animate_when_almost_visible wpb_bottom-to-top bottom-to-top vc_custom_1613565579224 vertical-line-right" >
+			<div class="wpb_wrapper">
+				<div class="title-h1" style="text-align: right;">Smart &amp;<br />
+professional</div>
+
+			</div>
+		</div>
+	
+
+	
+		<div class="wpb_text_column wpb_content_element  wpb_animate_when_almost_visible wpb_bottom-to-top bottom-to-top vc_custom_1599762968088 vertical-line-right-excerpt" >
+			<div class="wpb_wrapper">
+				<div class="title-h6"><span style="color: #e94a47;">Contact us now for any suggestions</span></div>
+
+			</div>
+		</div>
+	
+</div></div></div><div class="wpb_column vc_column_container vc_col-sm-2 vc_hidden-sm vc_hidden-xs"><div class="vc_column-inner thegem-custom-inner-61c824d95d094 "><div class="wpb_wrapper"></div></div></div></div><div class="vc_row wpb_row vc_inner vc_row-fluid custom-inner-column-61c824d95d0ec"><div class="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-offset-6 vc_col-md-offset-5 vc_col-md-6 vc_col-sm-offset-6 disable-custom-paggings-tablet disable-custom-paggings-mobile"><div class="vc_column-inner thegem-custom-inner-61c824d95d18b vc_custom_1600193808461"><div class="wpb_wrapper"><div class="clearboth"></div>
+		
+<div class="clearboth"></div><div class="gem-divider " style="margin-top: 80px;"></div>
+	
+		<div class="wpb_text_column wpb_content_element  wpb_animate_when_almost_visible wpb_bottom-to-top bottom-to-top" >
+			<div class="wpb_wrapper">
+				<div class="title-h5"><span style="color: #e94a47;">FOLLOW US:</span></div>
+
+			</div>
+		</div>
+	
+<div class="clearboth"></div><div class="gem-divider " style="margin-top: 45px;"></div><div class="socials socials-list socials-colored-hover socials-rounded socials-alignment-left"><a class="socials-item" target="_blank" href="https://www.facebook.com/masum.mridha.16/" style="color: #ffffff;"><i class="socials-item-icon facebook" style="font-size: 32px"></i></a><a class="socials-item" target="_blank" href="https://www.linkedin.com/in/masummridha/" style="color: #ffffff;"><i class="socials-item-icon linkedin" style="font-size: 32px"></i></a><a class="socials-item" target="_blank" href="https://github.com/MasumMridha51" style="color: #ffffff;"><i class="fa fa-github" style="font-size: 32px"></i></a></div></div></div></div></div><div class="clearboth"></div><div class="gem-divider " style="margin-top: 110px;"></div><div class="vc_row wpb_row vc_inner vc_row-fluid custom-inner-column-61c824d95d522"><div class="wpb_column vc_column_container vc_col-sm-4 vc_col-md-3"><div class="vc_column-inner thegem-custom-inner-61c824d95d5d1 "><div class="wpb_wrapper"><div class="clearboth"></div><div class="gem-divider " style="margin-top: 5px;"></div><div class="gem-image gem-wrapbox gem-wrapbox-style-default gem-wrapbox-position-below lazy-loading"  style="width: 200px;"><div class="gem-wrapbox-inner  lazy-loading-item"  data-ll-effect="move-up"><img class="gem-wrapbox-element img-responsive" src="masummridha.png" alt=""/></div></div><div class="clearboth"></div><div class="gem-divider " style="margin-top: 30px;"></div>
+	
+		<div class="wpb_text_column wpb_content_element " >
+			<div class="wpb_wrapper">
+				<p><span style="color: #ffffff;">©Copyright </span> <a href="#">Masum Mridha</a></p>
+
+			</div>
+		</div>
+	
+<div class="clearboth"></div><div class="gem-divider " style="margin-top: 50px;"></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-8 vc_col-md-9"><div class="vc_column-inner thegem-custom-inner-61c824d95d775 "><div class="wpb_wrapper">
+	
+		<div class="wpb_text_column wpb_content_element  wpb_animate_when_almost_visible wpb_bottom-to-top bottom-to-top" >
+			<div class="wpb_wrapper">
+				<div class="title-h5"><span style="color: #e94a47;">CONTACT US:</span></div>
+
+			</div>
+		</div>
+	
+<div class="clearboth"></div><div class="gem-divider " style="margin-top: 30px;"></div><div class="gem-icon-with-text gem-icon-with-text-icon-size-small disable-mobile-centered gem-icon-with-text-flow" ><div style="margin-bottom:0px;margin-top:0px; " class="gem-icon-with-text-icon"><div class="gem-icon gem-icon-pack-elegant gem-icon-size-small  gem-icon-shape-square gem-simple-icon"  style="opacity: 1;"><div class="gem-icon-inner" style=""><span class="gem-icon-half-1" style="color: #ffffff;"><span class="back-angle">&#xe01d;</span></span><span class="gem-icon-half-2" style="color: #ffffff;"><span class="back-angle">&#xe01d;</span></span></div></div></div><div class="gem-icon-with-text-content" ><div class="gem-icon-with-text-text">
+	
+		<div class="wpb_text_column wpb_content_element " >
+			<div class="wpb_wrapper">
+				<p><span style="color: #ffffff;">Golakandail (South) , Bhulta, Rupgonj, Narayangonj,Bangladesh</span></p>
+
+			</div>
+		</div>
+	
+</div></div><div class="clearboth"></div></div><div class="gem-icon-with-text gem-icon-with-text-icon-size-small disable-mobile-centered gem-icon-with-text-flow" ><div style="margin-bottom:0px;margin-top:0px; " class="gem-icon-with-text-icon"><div class="gem-icon gem-icon-pack-elegant gem-icon-size-small  gem-icon-shape-square gem-simple-icon"  style="opacity: 1;"><div class="gem-icon-inner" style=""><span class="gem-icon-half-1" style="color: #ffffff;"><span class="back-angle">&#xe027;</span></span><span class="gem-icon-half-2" style="color: #ffffff;"><span class="back-angle">&#xe027;</span></span></div></div></div><div class="gem-icon-with-text-content" ><div class="gem-icon-with-text-text">
+	
+		<div class="wpb_text_column wpb_content_element " >
+			<div class="wpb_wrapper">
+				<p><span style="color: #ffffff;">Phones: +880 151-606-3037, +880 182-569-0912</span></p>
+
+			</div>
+		</div>
+	
+</div></div><div class="clearboth"></div></div><div class="gem-icon-with-text gem-icon-with-text-icon-size-small disable-mobile-centered gem-icon-with-text-flow" ><div style="margin-bottom:0px;margin-top:0px; " class="gem-icon-with-text-icon"><div class="gem-icon gem-icon-pack-elegant gem-icon-size-small  gem-icon-shape-square gem-simple-icon"  style="opacity: 1;"><div class="gem-icon-inner" style=""><span class="gem-icon-half-1" style="color: #ffffff;"><span class="back-angle">&#xe010;</span></span><span class="gem-icon-half-2" style="color: #ffffff;"><span class="back-angle">&#xe010;</span></span></div></div></div><div class="gem-icon-with-text-content" ><div class="gem-icon-with-text-text">
+	
+		<div class="wpb_text_column wpb_content_element " >
+			<div class="wpb_wrapper">
+				<p><span style="color: #ffffff;">Email:</span> <a href="mailto:masummridha51@gmail.com">masummridha51@gmail.com</a></p>
+
+			</div>
+		</div>
+	
+<div class="clearboth"></div><div class="gem-divider " style="margin-top: 55px;"></div></div></div><div class="clearboth"></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="vc_row-full-width vc_clearfix"></div>
+					</div><!-- .entry-content -->
+
+					
+					
+					
+					
+					
+				</article><!-- #post-## -->
+
+			</div>
+
+			
+		</div>
+
+	</div>
+</div><!-- .block-content -->
+
+</div><!-- #main-content -->
+
+
+		</div><!-- #main -->
+		<div id="lazy-loading-point"></div>
+
+			</div><!-- #page -->
+
+	
+	<script type="text/javascript">
+var index, gemScriptsElements = document.querySelectorAll('.preloader:not(.slideshow-preloader),.lazy-loading,.item-animations-not-inited,.portfolio,.gem-counter,.single-product-content,.vc_images_carousel,.wpb_animate_when_almost_visible,.page-title-parallax-background,.thegem-ken-burns-bg,.fullwidth-block-ken-burns,.fullwidth-block-parallax-vertical,.fullwidth-block-parallax-horizontal,.vc_column-inner.sticky,.vc_parallax,.gem-video-background,.diagram-item,.vc_chart,.widget-testimonials,.gem-interactions-enabled');
+for (index = 0; index < gemScriptsElements.length; index++) {
+	var elRect = gemScriptsElements[index].getBoundingClientRect();
+	if((elRect.top < window.innerHeight || elRect.top < document.documentElement.clientHeight) && elRect.bottom > 0) {
+		window.dispatchEvent(new Event('mousemove'));
+	}
+}
+var gemResponsiveMenu = document.querySelector('.primary-navigation');
+function gemResponsiveMenuClick(event) {
+	window.gemResponsiveMenuClicked = 1;
+	gemResponsiveMenu.removeEventListener('click', gemResponsiveMenuClick);
+	gemResponsiveMenu.removeEventListener('touchstart', gemResponsiveMenuClick);
+}
+if(gemResponsiveMenu) {
+	gemResponsiveMenu.addEventListener('click', gemResponsiveMenuClick);
+	gemResponsiveMenu.addEventListener('touchstart', gemResponsiveMenuClick);
+}
+var gemResponsiveCart = document.querySelector('.mobile-cart-position-top .mobile-cart');
+function gemResponsiveCartClick(event) {
+	event.preventDefault();
+	window.gemResponsiveCartClicked = 1;
+	gemResponsiveCart.removeEventListener('click', gemResponsiveCartClick);
+	gemResponsiveCart.removeEventListener('touchstart', gemResponsiveCartClick);
+}
+if(gemResponsiveCart) {
+	gemResponsiveCart.addEventListener('click', gemResponsiveCartClick);
+	gemResponsiveCart.addEventListener('touchstart', gemResponsiveCartClick);
+}
+window.addEventListener('rocket-load', function() {
+	window.dispatchEvent(new Event('load'));
+	jQuery(window).trigger('load');
+});
+</script>
+<script type="text/html" id="wpb-modifications"></script><link rel='stylesheet' id='thegem-heading-css'  href='wp-content/themes/thegem/css/thegem-headingf658.css?ver=5.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='thegem-lazy-loading-animations-css'  href='wp-content/themes/thegem/css/thegem-lazy-loading-animationsf658.css?ver=5.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='vc_animate-css-css'  href='wp-content/plugins/js_composer/assets/lib/bower/animate-css/animate.minbdeb.css?ver=6.7.0' type='text/css' media='all' />
+<link rel='stylesheet' id='vc_tta_style-css'  href='wp-content/plugins/js_composer/assets/css/js_composer_tta.minbdeb.css?ver=6.7.0' type='text/css' media='all' />
+<link rel='stylesheet' id='thegem-pricing-tables-css'  href='wp-content/themes/thegem/css/thegem-pricing-tablesf658.css?ver=5.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='thegem-hovers-horizontal-sliding-css'  href='wp-content/themes/thegem/css/hovers/thegem-hovers-horizontal-slidingf658.css?ver=5.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='thegem-animations-css'  href='wp-content/themes/thegem/css/thegem-itemsAnimationsf658.css?ver=5.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='odometr-css'  href='wp-content/themes/thegem/css/odometer-theme-defaultf658.css?ver=5.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='thegem-testimonials-css'  href='wp-content/themes/thegem/css/thegem-testimonialsf658.css?ver=5.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='thegem-news-grid-version-new-hovers-zooming-blur-css'  href='wp-content/themes/thegem/css/thegem-news-grid-version-new/zooming-blurf658.css?ver=5.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='yikes-inc-easy-mailchimp-public-styles-css'  href='wp-content/plugins/yikes-inc-easy-mailchimp-extender/public/css/yikes-inc-easy-mailchimp-extender-public.minf658.css?ver=5.8.1' type='text/css' media='all' />
+<style id='yikes-inc-easy-mailchimp-public-styles-inline-css' type='text/css'>
+
+			.yikes-easy-mc-form label.label-inline {
+				float: left;
+				width: 79%;
+				padding-right: 10px;
+				
+			 }
+
+			 /* Drop the submit button (100% width) below the fields */
+			 @media ( max-width: 768px ) {
+			 	.yikes-easy-mc-form label.label-inline {
+					width: 99%;
+					padding-right: 10px;
+				}
+				.yikes-easy-mc-form .submit-button-inline-label {
+					width: 100%;
+					float: none;
+				}
+				.yikes-easy-mc-form .submit-button-inline-label .empty-label {
+					display: none;
+				}
+			}
+
+			/* Stack all fields @ 100% */
+			@media ( max-width: 650px ) {
+				.yikes-easy-mc-form label.label-inline {
+					width: 100%;
+				}
+			}
+		
+</style>
+<link rel='stylesheet' id='icons-elegant-css'  href='wp-content/themes/thegem/css/icons-elegantf658.css?ver=5.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='tsc-style-1-css'  href='wp-content/plugins/thegem-style-changer-new/css/tsc-style-shortdc3e.css?ver=1636363134' type='text/css' media='all' />
+<link rel='stylesheet' id='tsc-style-2-css'  href='wp-content/plugins/thegem-style-changer-new/build/css/pages-spritef658.css?ver=5.8.1' type='text/css' media='all' />
+<script type='text/javascript' id='thegem-menu-init-script-js-extra'>
+/* <![CDATA[ */
+var thegem_dlmenu_settings = {"backLabel":"Back","showCurrentLabel":"Show this page"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/themes/thegem/js/thegem-menu_initf658.js?ver=5.8.1' id='thegem-menu-init-script-js'></script>
+<script type='text/javascript' id='thegem-menu-init-script-js-after'>
+function fullHeightRow() {
+			var fullHeight,
+				offsetTop,
+				element = document.getElementsByClassName('vc_row-o-full-height')[0];
+			if (element) {
+				fullHeight = window.innerHeight;
+				offsetTop = window.pageYOffset + element.getBoundingClientRect().top;
+				if (offsetTop < fullHeight) {
+					fullHeight = 100 - offsetTop / (fullHeight / 100);
+					element.style.minHeight = fullHeight + 'vh'
+				}
+			}
+		}
+		fullHeightRow();
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/themes/thegem/js/thegem-form-elementsf658.js?ver=5.8.1' id='thegem-form-elements-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/themes/thegem/js/jquery.easingf658.js?ver=5.8.1' id='jquery-easing-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/themes/thegem/js/thegem-headerf658.js?ver=5.8.1' id='thegem-header-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/themes/thegem/js/SmoothScrollf658.js?ver=5.8.1' id='SmoothScroll-js'></script>
+<script type='text/javascript' id='thegem-scripts-js-extra'>
+/* <![CDATA[ */
+var thegem_scripts_data = {"ajax_url":"https:\/\/codex-themes.com\/thegem\/sites\/agency-creative-onepager\/wp-admin\/admin-ajax.php","ajax_nonce":"713448b991"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/themes/thegem/js/functionsf658.js?ver=5.8.1' id='thegem-scripts-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/themes/thegem/js/fancyBox/jquery.mousewheel.packf658.js?ver=5.8.1' id='jquery-mousewheel-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/themes/thegem/js/fancyBox/jquery.fancybox.minf658.js?ver=5.8.1' id='jquery-fancybox-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/themes/thegem/js/fancyBox/jquery.fancybox-initf658.js?ver=5.8.1' id='fancybox-init-script-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-includes/js/dist/vendor/regenerator-runtime.minb36a.js?ver=0.13.7' id='regenerator-runtime-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-includes/js/dist/vendor/wp-polyfill.min2c7c.js?ver=3.15.0' id='wp-polyfill-js'></script>
+<script type='text/javascript' id='contact-form-7-js-extra'>
+/* <![CDATA[ */
+var wpcf7 = {"api":{"root":"https:\/\/codex-themes.com\/thegem\/sites\/agency-creative-onepager\/wp-json\/","namespace":"contact-form-7\/v1"},"cached":"1"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/plugins/contact-form-7/includes/js/index4245.js?ver=5.5.2' id='contact-form-7-js'></script>
+<script type='text/javascript' id='ppress-frontend-script-js-extra'>
+/* <![CDATA[ */
+var pp_ajax_form = {"ajaxurl":"https:\/\/codex-themes.com\/thegem\/sites\/agency-creative-onepager\/wp-admin\/admin-ajax.php","confirm_delete":"Are you sure?","deleting_text":"Deleting...","deleting_error":"An error occurred. Please try again.","nonce":"c9afb67378","disable_ajax_form":"false"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/plugins/wp-user-avatar/assets/js/frontend.minee9a.js?ver=3.2.2' id='ppress-frontend-script-js'></script>
+<script type='text/javascript' id='rocket-browser-checker-js-after'>
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script type='text/javascript' id='rocket-preload-links-js-extra'>
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"\/thegem\/sites\/agency-creative-onepager(\/(.+\/)?feed\/?.+\/?|\/(?:.+\/)?embed\/|\/(index\\.php\/)?wp\\-json(\/.*|$))|\/wp-admin\/|\/logout\/|\/wp-login.php","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|php|pdf|html|htm","siteUrl":"https:\/\/codex-themes.com\/thegem\/sites\/agency-creative-onepager","onHoverDelay":"100","rateThrottle":"3"};
+/* ]]> */
+</script>
+<script type='text/javascript' id='rocket-preload-links-js-after'>
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("https://codex-themes.com/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("https://codex-themes.com/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script type='text/javascript' src='wp-includes/js/wp-embed.minf658.js?ver=5.8.1' id='wp-embed-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/plugins/js_composer/assets/js/dist/js_composer_front.minbdeb.js?ver=6.7.0' id='wpb_composer_front_js-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/themes/thegem/js/rellax.minf658.js?ver=5.8.1' id='thegem-rellax-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/themes/thegem/js/interactions.js' id='thegem-interactions-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/themes/thegem/js/thegem-lazyLoadingf658.js?ver=5.8.1' id='thegem-lazy-loading-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/plugins/js_composer/assets/lib/vc_waypoints/vc-waypoints.minbdeb.js?ver=6.7.0' id='vc_waypoints-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/themes/thegem/js/vc-accordionbdeb.js?ver=6.7.0' id='vc_accordion_script-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/plugins/js_composer/assets/lib/vc-tta-autoplay/vc-tta-autoplay.minbdeb.js?ver=6.7.0' id='vc_tta_autoplay_script-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/themes/thegem/js/thegem-scrollMonitorf658.js?ver=5.8.1' id='thegem-scroll-monitor-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/themes/thegem/js/thegem-itemsAnimationsf658.js?ver=5.8.1' id='thegem-items-animations-js'></script>
+<script type='text/javascript' id='thegem-portfolio-grid-extended-js-extra'>
+/* <![CDATA[ */
+var thegem_portfolio_ajax_8658c80 = {"data":{"portfolio":"","title":"","columns":"3x","layout_version":"fullwidth","caption_position":"right","layout":"justified","gaps_size":"42","display_titles":"page","background_style":"dark","title_style":"light","hover":"horizontal-sliding","pagination":"more","loading_animation":"move-up","items_per_page":"3","with_filter":"","show_info":"1","is_ajax":false,"disable_socials":"1","columns_100":"4","likes":false,"sorting":false,"all_text":"Show All","orderby":"","order":"","button":{"text":"Load More","style":"flat","size":"medium","text_weight":"normal","no_uppercase":0,"corner":"25","border":2,"text_color":"","background_color":"#00bcd5","border_color":"","hover_text_color":"","hover_background_color":"","hover_border_color":"","icon_pack":"elegant","icon_elegant":"","icon_material":"","icon_fontawesome":"","icon_userpack":"","icon_position":"left","separator":"load-more","icon":""},"metro_max_row_height":"380","ignore_highlights":"1","skeleton_loader":"","next_page_preloading":"1","filters_preloading":"1","content_portfolios_cat":["marketing-support"],"background_color":"rgba(0,0,0,0.01)","border_color":"","title_color":"","separator_color":"#e94a47","desc_color":""},"action":"portfolio_grid_load_more","url":"https:\/\/codex-themes.com\/thegem\/sites\/agency-creative-onepager\/wp-admin\/admin-ajax.php","nonce":"8c49fba296"};
+var thegem_portfolio_ajax_e47dd99 = {"data":{"categories":["agency-creative-onepager"],"title":"","version":"new","columns":"3x","layout_version":"fullwidth","caption_position":"right","layout":"justified","gaps_size":"42","display_titles":"page","background_style":"transparent","title_style":"light","hover":"zooming-blur","pagination":"disable","loading_animation":"move-up","items_per_page":"3","ignore_highlights":"1","with_filter":"","show_info":"","is_ajax":false,"disable_socials":"","columns_100":"4","likes":"1","sorting":"","hide_date":"","hide_categories":"1","hide_author_avatar":"","hide_author":"1","hide_comments":"","hide_sharing":false,"all_text":"Show All","orderby":"","order":"","button":{"text":"Load More","style":"flat","size":"medium","text_weight":"normal","no_uppercase":0,"corner":25,"border":2,"text_color":"","background_color":"#00bcd5","border_color":"","hover_text_color":"","hover_background_color":"","hover_border_color":"","icon_pack":"elegant","icon_elegant":"","icon_material":"","icon_fontawesome":"","icon_userpack":"","icon_position":"left","separator":"load-more","icon":""},"metro_max_row_height":"380","grid_post_types":["post"],"item_hover_background_color":"","item_background_color":"","item_post_title_color":"","item_post_author_color":"","item_post_date_color":"#428dfc","item_post_excerpt_color":"","item_post_categories_color":"","item_post_categories_background_color":"","item_post_comments_icon_color":"","item_post_likes_icon_color":"","item_post_share_icon_color":"","item_post_share_social_icon_color":"","item_post_hover_icon_color":"","item_post_bottom_border_color":"#292a34","skeleton_loader":"","next_page_preloading":"1","filters_preloading":"1"},"action":"blog_grid_extended_load_more","url":"https:\/\/codex-themes.com\/thegem\/sites\/agency-creative-onepager\/wp-admin\/admin-ajax.php","nonce":"8c49fba296"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/themes/thegem/js/thegem-portfolio-grid-extendedf658.js?ver=5.8.1' id='thegem-portfolio-grid-extended-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/themes/thegem/js/diagram_linef658.js?ver=5.8.1' id='thegem-diagram-line-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/themes/thegem/js/odometerf658.js?ver=5.8.1' id='odometr-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/themes/thegem/js/counters-effectsf658.js?ver=5.8.1' id='thegem-counters-effects-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/themes/thegem/js/thegem-countersf658.js?ver=5.8.1' id='thegem-counter-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/themes/thegem/js/jquery.touchSwipe.minf658.js?ver=5.8.1' id='jquery-touchSwipe-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/themes/thegem/js/jquery.carouFredSelf658.js?ver=5.8.1' id='jquery-carouFredSel-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/themes/thegem/js/testimonials-carouself658.js?ver=5.8.1' id='thegem-testimonials-carousel-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/themes/thegem/js/clients-grid-carouself658.js?ver=5.8.1' id='thegem-clients-grid-carousel-js'></script>
+<script type='text/javascript' id='yikes-easy-mc-ajax-js-extra'>
+/* <![CDATA[ */
+var yikes_mailchimp_ajax = {"ajax_url":"https:\/\/codex-themes.com\/thegem\/sites\/agency-creative-onepager\/wp-admin\/admin-ajax.php","page_data":"38","interest_group_checkbox_error":"This field is required.","preloader_url":"https:\/\/codex-themes.com\/thegem\/sites\/agency-creative-onepager\/wp-content\/plugins\/yikes-inc-easy-mailchimp-extender\/includes\/images\/ripple.svg","loading_dots":"https:\/\/codex-themes.com\/thegem\/sites\/agency-creative-onepager\/wp-content\/plugins\/yikes-inc-easy-mailchimp-extender\/includes\/images\/bars.svg","ajax_security_nonce":"5ae0ec3c17","feedback_message_placement":"before"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/plugins/yikes-inc-easy-mailchimp-extender/public/js/yikes-mc-ajax-forms.mina784.js?ver=6.8.5' id='yikes-easy-mc-ajax-js'></script>
+<script type='text/javascript' id='form-submission-helpers-js-extra'>
+/* <![CDATA[ */
+var form_submission_helpers = {"ajax_url":"https:\/\/codex-themes.com\/thegem\/sites\/agency-creative-onepager\/wp-admin\/admin-ajax.php","preloader_url":"https:\/\/codex-themes.com\/thegem\/sites\/agency-creative-onepager\/wp-admin\/images\/wpspin_light.gif","countries_with_zip":{"US":"US","GB":"GB","CA":"CA","IE":"IE","CN":"CN","IN":"IN","AU":"AU","BR":"BR","MX":"MX","IT":"IT","NZ":"NZ","JP":"JP","FR":"FR","GR":"GR","DE":"DE","NL":"NL","PT":"PT","ES":"ES"},"page_data":"38"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/plugins/yikes-inc-easy-mailchimp-extender/public/js/form-submission-helpers.mina784.js?ver=6.8.5' id='form-submission-helpers-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='wp-content/plugins/thegem-style-changer-new/js/tsc-scriptsa805.js?ver=1636363135' id='tsc-script-js'></script>
+<script type="text/javascript">
+	(function() {
+		if (window.gemOptions.clientWidth <= 800) {
+			return;
+		}
+		window.styleChangerLoaded = false;
+		window.styleChangerRun = false;
+		window.styleChangerAjaxLoaded = false;
+		window.fullStyleChangerLink = 'https://codex-themes.com/thegem/wp-admin/admin-ajax.php?action=tsc_new_load&amp;t=1640506585&amp;show_menu&amp;full=1';
+		function loadStyleChanger() {
+			if(window.styleChangerLoaded) return ;
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET.html', 'https://codex-themes.com/thegem/wp-admin/admin-ajax.php?action=tsc_new_load&amp;t=1640506585&amp;show_menu', true);
+			xhr.onload = function() {
+				if (xhr.readyState === 4 && xhr.status === 200) {
+					var tscWrapper = document.createElement('div');
+					var tscData = JSON.parse(xhr.responseText);
+					tscWrapper.innerHTML = tscData.content;
+					document.body.appendChild(tscWrapper)
+					window.tscWrapper = tscWrapper;
+					document.querySelector('.style-changer-holder').classList.remove('not-inited');
+					window.styleChangerAjaxLoaded = true;
+					if(typeof window.runStyleChanger !== 'undefined') {
+						window.runStyleChanger();
+					}
+					var gemStyleChangerButtonMain = document.querySelector('#tsc-main-button');
+					var gemStyleChangerButtonSites = document.querySelector('#tsc-sites-button');
+					function gemStyleChangerButtonClick(event) {
+						event.preventDefault();
+						this.classList.add('clicked');
+						gemStyleChangerButtonMain.removeEventListener('click', gemStyleChangerButtonClick);
+						gemStyleChangerButtonSites.removeEventListener('click', gemStyleChangerButtonClick);
+					}
+					if(!window.styleChangerRun) {
+						gemStyleChangerButtonMain.addEventListener('click', gemStyleChangerButtonClick);
+						gemStyleChangerButtonSites.addEventListener('click', gemStyleChangerButtonClick);
+					}
+				}
+			};
+			xhr.send(null);
+			window.styleChangerLoaded = true;
+		}
+
+		window.addEventListener('load', function() {
+			setTimeout(loadStyleChanger, 10);
+		}, false);
+	})();
+</script>
+				<div id="fullscreen-search" class="">
+			<form role="search" id="searchform" class="sf" action="https://codex-themes.com/thegem/sites/agency-creative-onepager/" method="GET">
+				<input id="fullscreen-searchform-input" class="sf-input" type="text" placeholder="Start typing to search..." name="s" data-styles="">
+				<div class="sf-close"></div>
+			</form>
+			<div class="search-scroll">
+								<div class="sf-result">
+					<div class="result-sections"></div>
+				</div>
+			</div>
+
+		</div>
+	</body>
+
+
+</html>
